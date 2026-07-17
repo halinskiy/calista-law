@@ -1,0 +1,48 @@
+:root {
+  /* Поверхности. Тёплый off-white, не белый: белый на большом поле читается как незаполненный документ. */
+  --bg: #f6f5f2;
+  --bg-raised: #fbfaf8;
+  --bg-ink: #101014;
+
+  --text: #101014;
+  --text-muted: #61616a;
+  --text-on-ink: #f2f1ee;
+
+  /* Акцент один: чернильный синий. Латунь только для состояний и меток. */
+  --accent: #16324f;
+  --accent-soft: #16324f14;
+  --brass: #a8823c;
+
+  --hairline: #10101418;
+  --hairline-strong: #10101430;
+
+  /* Типографика */
+  --font-sans: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'JetBrains Mono', monospace;
+
+  --step-display: clamp(3.5rem, 9vw, 9.5rem);
+  --step-h1: clamp(2.5rem, 5.5vw, 5rem);
+  --step-h2: clamp(1.75rem, 3vw, 2.75rem);
+  --step-body: clamp(1rem, 1.15vw, 1.125rem);
+  --step-mono: 0.75rem;
+
+  /* Ритм */
+  --container: 1440px;
+  --gutter: clamp(1.25rem, 4vw, 4rem);
+  --section-y: clamp(5rem, 10vw, 9rem);
+
+  /* Движение. Один язык easing на весь сайт. */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 240ms;
+  --dur-base: 560ms;
+  --dur-slow: 900ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 1ms;
+    --dur-base: 1ms;
+    --dur-slow: 1ms;
+  }
+}
