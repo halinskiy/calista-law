@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <>
       <main id="top">
-        {/* Hero: слева заявление и действия, справа панель ключевых цифр — hero не пустует. */}
+        {/* Hero: заявление слева, cinematic-фото London справа. Визуал несёт вес, как у премиальных. */}
         <section className={styles.hero}>
           <div className={`${styles.heroGrid} container`}>
             <div className={styles.heroCol}>
@@ -37,24 +37,35 @@ export default function Home() {
               </div>
             </div>
 
-            <aside className={styles.heroPanel}>
-              <div className={styles.metric}>
-                <p className={styles.metricNum}>£{FEES.total}</p>
-                <p className={styles.metricLabel}>Home Office fees, endorsement plus visa</p>
-              </div>
-              <div className={styles.metric}>
-                <p className={styles.metricNum}>{GRADES[0].ilrYears} yrs</p>
-                <p className={styles.metricLabel}>To settlement on Exceptional Talent</p>
-              </div>
-              <div className={styles.metric}>
-                <p className={styles.metricNum}>2</p>
-                <p className={styles.metricLabel}>Endorsing bodies. Only one is yours</p>
-              </div>
-              <div className={styles.metric}>
-                <p className={styles.metricNum}>No</p>
-                <p className={styles.metricLabel}>Job offer needed. Freelance allowed</p>
-              </div>
-            </aside>
+            <div className={styles.heroPhoto}>
+              {/* Photo: Unsplash. City of London skyline, St Paul's Cathedral. */}
+              <img
+                src={`${import.meta.env.BASE_URL}hero-london.jpg`}
+                alt="City of London skyline with St Paul's Cathedral"
+                width={1300}
+                height={1950}
+              />
+            </div>
+          </div>
+
+          {/* Ключевые цифры тонкой полосой под hero. */}
+          <div className={`${styles.metricsBand} container`}>
+            <div className={styles.metric}>
+              <p className={styles.metricNum}>£{FEES.total}</p>
+              <p className={styles.metricLabel}>Home Office fees, endorsement plus visa</p>
+            </div>
+            <div className={styles.metric}>
+              <p className={styles.metricNum}>{GRADES[0].ilrYears} yrs</p>
+              <p className={styles.metricLabel}>To settlement on Exceptional Talent</p>
+            </div>
+            <div className={styles.metric}>
+              <p className={styles.metricNum}>2</p>
+              <p className={styles.metricLabel}>Endorsing bodies. Only one is yours</p>
+            </div>
+            <div className={styles.metric}>
+              <p className={styles.metricNum}>No</p>
+              <p className={styles.metricLabel}>Job offer needed. Freelance allowed</p>
+            </div>
           </div>
         </section>
 
