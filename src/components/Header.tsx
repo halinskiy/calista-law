@@ -10,31 +10,12 @@ const NAV = [
 
 export default function Header() {
   const [open, setOpen] = useState(false)
-  const [solid, setSolid] = useState(false)
   const { hash } = useLocation()
 
   useEffect(() => setOpen(false), [hash])
 
-  // Прошли синий hero → хедер становится светлым, чтобы читаться на светлом контенте.
-  useEffect(() => {
-    let raf = 0
-    const update = () => {
-      raf = 0
-      setSolid(window.scrollY > window.innerHeight * 0.72)
-    }
-    const onScroll = () => {
-      if (!raf) raf = requestAnimationFrame(update)
-    }
-    window.addEventListener('scroll', onScroll, { passive: true })
-    update()
-    return () => {
-      window.removeEventListener('scroll', onScroll)
-      if (raf) cancelAnimationFrame(raf)
-    }
-  }, [])
-
   return (
-    <header className={styles.header} data-open={open} data-solid={solid}>
+    <header className={styles.header} data-open={open}>
       <div className={styles.inner}>
         <a href="#top" className={styles.brand}>
           Calista Law

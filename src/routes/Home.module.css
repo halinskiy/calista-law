@@ -1,19 +1,17 @@
-/* ── Hero: единственный крупный синий блок сверху ─────── */
+/* Весь сайт светлый: тёмный текст на белом. Синий — акцент на белом, где он контрастен.
+   Никакого длинного текста на цветном фоне. Контрасты сверены по WCAG 2.2 (см. scripts/contrast). */
+
+/* ── Hero ─────────────────────────────────────────────── */
 
 .hero {
-  background: var(--brand);
-  color: var(--on);
   padding-top: clamp(9rem, 18vh, 13rem);
   padding-bottom: var(--rhythm);
-}
-
-.hero .mono {
-  color: var(--on-soft);
+  border-bottom: 1px solid var(--line);
 }
 
 .heroTitle {
   font-size: var(--text-hero);
-  color: var(--on);
+  color: var(--ink);
   max-width: 17ch;
   margin-top: 1.5rem;
 }
@@ -23,7 +21,7 @@
   margin-top: 1.75rem;
   font-size: clamp(1.15rem, 1.5vw, 1.35rem);
   line-height: 1.55;
-  color: var(--on-soft);
+  color: var(--body);
   text-wrap: pretty;
 }
 
@@ -34,23 +32,26 @@
   margin-top: 2.5rem;
 }
 
-.heroSolid {
+/* Primary CTA: тёмная. Белый на ink #10163a = 17:1, WCAG AAA. */
+.heroSolid,
+.ctaSolid {
   display: inline-flex;
   align-items: center;
   gap: 0.6em;
   height: 56px;
   padding: 0 1.9rem;
-  background: var(--on);
-  color: var(--brand);
+  background: var(--ink);
+  color: #ffffff;
   border-radius: var(--radius);
   font-weight: 600;
-  transition: gap var(--dur-hover) var(--ease-smooth), transform var(--dur-hover)
+  transition: gap var(--dur-hover) var(--ease-smooth), background-color var(--dur-hover)
       var(--ease-smooth);
 }
 
-.heroSolid:hover {
+.heroSolid:hover,
+.ctaSolid:hover {
   gap: 1em;
-  transform: translateY(-1px);
+  background: #05081f;
 }
 
 .heroGhost {
@@ -58,18 +59,18 @@
   align-items: center;
   height: 56px;
   padding: 0 1.9rem;
-  color: var(--on);
-  border: 1px solid var(--line-on-strong);
+  color: var(--ink);
+  border: 1px solid var(--line-strong);
   border-radius: var(--radius);
   font-weight: 600;
   transition: border-color var(--dur-hover) var(--ease-smooth);
 }
 
 .heroGhost:hover {
-  border-color: var(--on);
+  border-color: var(--ink);
 }
 
-/* ── Светлые секции для чтения ─────────────────────────── */
+/* ── Секции ───────────────────────────────────────────── */
 
 .section {
   padding-block: var(--rhythm);
@@ -84,26 +85,6 @@
   font-size: var(--text-h2);
   margin-top: 0.75rem;
   max-width: 18ch;
-}
-
-/* Синяя solid-кнопка для светлых секций (contact). */
-.ctaSolid {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6em;
-  height: 56px;
-  padding: 0 1.9rem;
-  background: var(--brand);
-  color: var(--on);
-  border-radius: var(--radius);
-  font-weight: 600;
-  transition: gap var(--dur-hover) var(--ease-smooth), background-color var(--dur-hover)
-      var(--ease-smooth);
-}
-
-.ctaSolid:hover {
-  gap: 1em;
-  background: var(--brand-deep);
 }
 
 /* ── Карточки маршрутов ───────────────────────────────── */
@@ -141,7 +122,7 @@
   margin-left: 0.6em;
   padding: 0.15em 0.5em;
   background: var(--brand);
-  color: var(--on);
+  color: #ffffff;
   border-radius: 3px;
   font-size: 0.7rem;
   letter-spacing: 0.04em;
@@ -232,26 +213,26 @@
   text-wrap: pretty;
 }
 
-/* ── Факты: синий акцентный блок ──────────────────────── */
+/* ── Факты: крупные синие цифры на белом (brand на white = 8.9:1, AAA) ── */
 
 .facts {
-  background: var(--brand);
   padding-block: var(--rhythm);
+  border-top: 1px solid var(--line);
 }
 
 .factGrid {
   display: grid;
   gap: 1px;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
-  background: var(--line-on);
-  border: 1px solid var(--line-on);
+  background: var(--line);
+  border: 1px solid var(--line);
   border-radius: var(--radius);
   overflow: hidden;
 }
 
 .fact {
   padding: clamp(1.75rem, 3vw, 2.75rem);
-  background: var(--brand);
+  background: var(--paper);
 }
 
 .factNum {
@@ -259,16 +240,16 @@
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 1;
-  color: var(--on);
+  color: var(--brand);
 }
 
 .factLabel {
   margin-top: 1rem;
-  color: var(--on-soft);
+  color: var(--body);
   text-wrap: pretty;
 }
 
-/* ── Contact: светлый ─────────────────────────────────── */
+/* ── Contact ──────────────────────────────────────────── */
 
 .contactLead {
   max-width: 54ch;
@@ -374,16 +355,16 @@
   margin-top: 2.5rem;
 }
 
-/* ── Гигантский вордмарк: синий блок-подпись ──────────── */
+/* ── Гигантский вордмарк: синим на белом ──────────────── */
 
 .wordmark {
-  background: var(--brand);
-  color: var(--on);
   font-size: var(--text-mega);
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 0.9;
   padding: clamp(3rem, 7vw, 6rem) var(--gutter) clamp(3rem, 7vw, 6rem);
+  color: var(--brand);
+  border-top: 1px solid var(--line);
   white-space: nowrap;
   overflow: hidden;
 }
