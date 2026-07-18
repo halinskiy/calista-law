@@ -63,7 +63,7 @@
   font-weight: 800;
   letter-spacing: -0.04em;
   line-height: 1;
-  color: var(--brand);
+  color: var(--ink);
 }
 
 .metricLabel {
@@ -240,7 +240,7 @@
 .stepNum {
   font-size: 1rem;
   font-weight: 700;
-  color: var(--brand);
+  color: var(--muted);
 }
 
 .stepTitle {
@@ -278,7 +278,7 @@
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--brand);
+  color: var(--muted);
 }
 
 .serviceName {

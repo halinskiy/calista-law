@@ -92,3 +92,9 @@ img {
   text-transform: uppercase;
   color: var(--muted);
 }
+
+/* Акцентная фраза: выделяем весом, не цветом — синего текста избегаем. */
+.accent {
+  color: var(--ink);
+  font-weight: 600;
+}
