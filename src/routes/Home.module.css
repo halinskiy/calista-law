@@ -1,153 +1,7 @@
 .main {
   position: relative;
-  /* Контент едет над сценой: сцена — фон, а не оверлей. */
+  /* Контент едет над атмосферой: сцена — фон, а не оверлей. */
   z-index: 1;
-}
-
-/* ── Hero ─────────────────────────────────────────────── */
-
-.hero {
-  min-height: 100svh;
-  display: flex;
-  align-items: center;
-  padding-block: 8vh;
-}
-
-.heroTitle {
-  font-size: var(--step-display);
-  /* Заголовок держится левее поля частиц: правая половина кадра принадлежит сцене. */
-  max-width: 11ch;
-  margin-block: 0.28em 0.5em;
-}
-
-.heroLead {
-  max-width: 46ch;
-  font-size: clamp(1.05rem, 1.4vw, 1.35rem);
-  color: var(--text-muted);
-  text-wrap: pretty;
-}
-
-.scrollHint {
-  margin-top: clamp(3rem, 8vh, 6rem);
-}
-
-/* ── Развилка ─────────────────────────────────────────── */
-
-.split {
-  padding-block: var(--section-y);
-}
-
-.splitHead {
-  margin-bottom: clamp(3rem, 6vw, 5rem);
-}
-
-.splitHead h2 {
-  font-size: var(--step-h1);
-  margin-top: 0.4em;
-  /* ch считается от шрифта САМОГО элемента: на родителе с базовым кеглем это ограничение
-     схлопнуло бы заголовок до пары сотен пикселей и разложило по слову на строку. */
-  max-width: 22ch;
-}
-
-.routes {
-  display: grid;
-  gap: clamp(1.5rem, 3vw, 3rem);
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr));
-}
-
-.route {
-  border: 1px solid var(--hairline);
-  /* Фона нет: медиа-зона должна быть окном в сцену. backdrop-filter здесь размывал бы
-     ровно те частицы, ради которых окно и существует. */
-  background: transparent;
-}
-
-/**
- * Якорь для сцены. Ни одного пикселя визуала: он существует только чтобы задать
- * прямоугольник, в который сядут частицы. Пропорция держится padding-ом,
- * потому что высота должна следовать за шириной колонки на любом экране.
- */
-.anchor {
-  padding-top: 66%;
-  border-bottom: 1px solid var(--hairline);
-}
-
-.routeBody {
-  padding: clamp(1.5rem, 2.2vw, 2.25rem);
-  /* Текст сидит на плотной поверхности: частицы живут в окне выше, а не под копирайтом. */
-  background: var(--bg-raised);
-}
-
-.badge {
-  display: inline-block;
-  margin-left: 0.75em;
-  padding: 0.2em 0.6em;
-  background: var(--brass);
-  color: #fff;
-  border-radius: 2px;
-  letter-spacing: 0.06em;
-}
-
-.routeTitle {
-  font-size: var(--step-h2);
-  margin-top: 0.5em;
-}
-
-.endorser {
-  margin-top: 0.6em;
-  font-size: 0.9rem;
-  color: var(--text-muted);
-}
-
-.routeSummary {
-  margin-top: 1.25em;
-  text-wrap: pretty;
-}
-
-.list {
-  margin: 1.5em 0 0;
-  padding: 0;
-  list-style: none;
-  border-top: 1px solid var(--hairline);
-}
-
-.list li {
-  padding: 0.55em 0;
-  border-bottom: 1px solid var(--hairline);
-  font-size: 0.95rem;
-}
-
-.excluded {
-  margin-top: 1.25em;
-  font-size: 0.9rem;
-  color: var(--text-muted);
-}
-
-.meta {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin: 1.75em 0 0;
-  padding-top: 1.25em;
-  border-top: 1px solid var(--hairline-strong);
-}
-
-.meta dt {
-  margin-bottom: 0.4em;
-}
-
-.meta dd {
-  margin: 0;
-  font-size: 0.95rem;
-}
-
-.trap {
-  max-width: 60ch;
-  margin-top: clamp(2.5rem, 5vw, 4rem);
-  padding-left: 1.25rem;
-  border-left: 2px solid var(--brass);
-  color: var(--text-muted);
-  text-wrap: pretty;
 }
 
 /* ── Общие секции ─────────────────────────────────────── */
@@ -155,7 +9,7 @@
 .section {
   padding-block: var(--section-y);
   border-top: 1px solid var(--hairline);
-  /* Секции ниже хиро перекрывают сцену: она отыграла свою роль в развилке. */
+  /* Секции ниже морфа непрозрачны: под текстом статьи атмосфера просвечивать не должна. */
   background: var(--bg);
 }
 
@@ -163,6 +17,15 @@
   font-size: var(--step-h1);
   max-width: 20ch;
   margin-top: 0.4em;
+}
+
+.trap {
+  max-width: 60ch;
+  font-size: clamp(1.1rem, 1.6vw, 1.5rem);
+  line-height: 1.4;
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--brass);
+  text-wrap: pretty;
 }
 
 /* ── Talent / Promise ─────────────────────────────────── */

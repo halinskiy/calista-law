@@ -14,24 +14,29 @@ await page.goto(URL, { waitUntil: 'networkidle' })
 await page.waitForTimeout(2500)
 await page.screenshot({ path: `${OUT}/01-hero.png` })
 
-// Скролл-скраб развилки: ratio считается по блоку карточек, целимся в него же.
-const routesTop = await page.evaluate(() => {
-  const el = document.querySelector('#routes article')?.parentElement
-  return el ? el.getBoundingClientRect().top + window.scrollY : 0
-})
+// Морф ведёт pin-обёртку #routes высотой 280vh. Снимаем ключевые фазы расхождения.
+const wrapH = await page.evaluate(() => document.querySelector('#routes').offsetHeight)
 const vh = 900
+const scrollable = wrapH - vh
 
-for (const [name, ratio] of [['02-split-mid', 0.5], ['03-split-settled', 1.0]]) {
-  // ratio = fit(top, vh*0.85, vh*0.15) → top = vh*0.85 - ratio*(vh*0.7)
-  const targetTop = vh * 0.85 - ratio * (vh * 0.7)
-  await page.evaluate((y) => window.scrollTo(0, y), routesTop - targetTop)
-  await page.waitForTimeout(2000)
+for (const [name, r] of [
+  ['02-morph-25', 0.28],
+  ['03-morph-mid', 0.5],
+  ['04-morph-done', 0.9],
+]) {
+  await page.evaluate((y) => window.scrollTo(0, y), r * scrollable)
+  await page.waitForTimeout(1400)
   await page.screenshot({ path: `${OUT}/${name}.png` })
 }
 
-for (const [name, sel] of [['04-grades', '#grades'], ['05-cost', '#cost'], ['06-pitfalls', '#pitfalls'], ['07-honesty', '#honesty']]) {
+for (const [name, sel] of [
+  ['05-grades', '#grades'],
+  ['06-cost', '#cost'],
+  ['07-pitfalls', '#pitfalls'],
+  ['08-honesty', '#honesty'],
+]) {
   await page.evaluate((s) => document.querySelector(s)?.scrollIntoView({ block: 'center' }), sel)
-  await page.waitForTimeout(1200)
+  await page.waitForTimeout(1000)
   await page.screenshot({ path: `${OUT}/${name}.png` })
 }
 
