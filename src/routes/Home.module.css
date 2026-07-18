@@ -78,8 +78,22 @@
 }
 
 .metric {
+  position: relative;
   padding: 1.5rem clamp(1rem, 2vw, 2rem) 1.75rem 0;
   border-right: 1px solid var(--line);
+}
+
+/* Крест-маркер на пересечении измерительной сетки, как на legal-странице Vercel. */
+.metric::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 9px;
+  height: 9px;
+  background: linear-gradient(var(--muted), var(--muted)) center / 9px 1px no-repeat,
+    linear-gradient(var(--muted), var(--muted)) center / 1px 9px no-repeat;
+  opacity: 0.5;
 }
 
 .metric:last-child {
@@ -179,12 +193,13 @@
   border: 1px solid var(--line);
   border-radius: var(--radius);
   transition: border-color var(--dur-hover) var(--ease-smooth), box-shadow var(--dur-hover)
-      var(--ease-smooth);
+      var(--ease-smooth), transform var(--dur-hover) var(--ease-smooth);
 }
 
 .routeCard:hover {
   border-color: var(--line-strong);
-  box-shadow: 0 12px 32px #10163a12;
+  box-shadow: 0 16px 40px #10163a14;
+  transform: translateY(-4px);
 }
 
 .cardKicker {
@@ -306,6 +321,14 @@
   background: var(--paper);
   border: 1px solid var(--line);
   border-radius: var(--radius);
+  transition: border-color var(--dur-hover) var(--ease-smooth), box-shadow var(--dur-hover)
+      var(--ease-smooth), transform var(--dur-hover) var(--ease-smooth);
+}
+
+.service:hover {
+  border-color: var(--line-strong);
+  box-shadow: 0 16px 40px #10163a14;
+  transform: translateY(-4px);
 }
 
 .servicePrice {
