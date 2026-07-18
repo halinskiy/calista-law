@@ -3,14 +3,9 @@ import styles from './Footer.module.css'
 
 export default function Footer() {
   return (
-    <footer className={`${styles.footer} ${styles.tweed}`}>
-      <div className={styles.inner}>
+    <footer className={styles.footer}>
+      <div className="container">
         <div className={styles.top}>
-          <div className={styles.brandCol}>
-            <p className={styles.brandName}>Calista Law</p>
-            <p className={styles.brandTag}>UK Global Talent, for designers.</p>
-          </div>
-
           <div className={styles.cols}>
             <div className={styles.col}>
               <p className="mono">Office</p>
@@ -24,9 +19,9 @@ export default function Footer() {
             <div className={styles.col}>
               <p className="mono">Explore</p>
               <a href="#routes">Two routes</a>
-              <a href="#pricing">Pricing</a>
+              <a href="#approach">Approach</a>
               <a href="#faq">FAQ</a>
-              <a href="#enquiry">Enquire</a>
+              <a href="#contact">Enquire</a>
             </div>
           </div>
         </div>

@@ -7,9 +7,8 @@
 }
 
 html {
-  /* Якорные ссылки навигации скроллят плавно, с отступом под липкий хедер. */
   scroll-behavior: smooth;
-  scroll-padding-top: 118px;
+  scroll-padding-top: 100px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -23,14 +22,15 @@ body,
 #root {
   margin: 0;
   min-height: 100%;
-  background: var(--paper);
+  /* Синий заливает всю страницу — фон живёт на body, не на секциях. */
+  background: var(--brand);
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: var(--font);
   font-size: var(--text-body);
-  line-height: 1.6;
-  color: var(--body);
+  line-height: 1.55;
+  color: var(--on);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -47,11 +47,10 @@ figure {
 h1,
 h2,
 h3 {
-  font-family: var(--font-heading);
-  color: var(--ink);
   font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--on);
   text-wrap: balance;
 }
 
@@ -74,7 +73,7 @@ img {
 }
 
 :focus-visible {
-  outline: 2px solid var(--ink);
+  outline: 2px solid var(--on);
   outline-offset: 3px;
 }
 
@@ -85,17 +84,11 @@ img {
   padding-inline: var(--gutter);
 }
 
-/* Eyebrow / техническая метка: разделы, счётчики, подписи. */
+/* Метка: eyebrow, счётчики, подписи. */
 .mono {
-  font-family: var(--font-heading);
   font-size: 0.8125rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--body-soft);
-}
-
-/* Inline-акцент oxblood: как «If overseas hiring matters, action now is essential» у Cromwell. */
-.accent {
-  color: var(--oxblood);
+  color: var(--on-soft);
 }

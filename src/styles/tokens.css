@@ -1,50 +1,40 @@
 :root {
-  /* Палитра Cromwell: charcoal-navy + oxblood, консервативный юридический тон. */
-  --paper: #ffffff;
-  --paper-2: #f7f7f7;
-  --ink: #212934; /* хедер, заголовки, тёмный UI */
-  --oxblood: #a52616; /* красный акцент: CTA, цена, emphasis */
-  --oxblood-deep: #861c0f;
-  --link: #198fd9;
+  /* Смелый монохром (референс Davis Polk): один насыщенный синий заливает всё, белым поверх. */
+  --brand: #1d2bd4; /* электрик-индиго, доминирующий фон */
+  --brand-deep: #1620a0; /* глубже: depth, hover */
+  --brand-bright: #4a58ff; /* ярче: редкий акцент, фокус */
 
-  --on-ink: #f5f4f2; /* текст на тёмном */
-  --on-ink-soft: #b8bcc2;
-  --body: #46494a; /* основной текст */
-  --body-soft: #595959; /* приглушённый, eyebrow */
+  --paper: #ffffff; /* редкие светлые блоки / инверсия */
+  --ink: #0a0e2e; /* почти-чёрный синий для текста на светлом */
 
-  --rule: #e5e4e3; /* волосяные линии, рамки карточек */
-  --rule-strong: #cfcecd;
-  --rule-ink: #38414d; /* граница на тёмном хедере */
+  /* Текст на синем */
+  --on: #ffffff;
+  --on-soft: #ffffffb3; /* приглушённый белый */
+  --on-faint: #ffffff73;
 
-  /* Типографика. Montserrat в заголовках/навигации, Hanken в тексте, Newsreader-serif дозированно. */
-  --font-display: 'Newsreader Variable', Georgia, 'Times New Roman', serif;
-  --font-body: 'Hanken Grotesk Variable', system-ui, -apple-system, sans-serif;
-  --font-heading: 'Montserrat', 'Segoe UI', system-ui, sans-serif;
-  --font-mono: ui-monospace, 'SF Mono', monospace;
+  /* Линии на синем: тонкие белые рамки карточек */
+  --line: #ffffff33;
+  --line-strong: #ffffff59;
 
-  --text-display: clamp(2.75rem, 5vw, 3.625rem);
-  --text-h1: clamp(2.25rem, 4.4vw, 3.625rem);
-  --text-h2: clamp(1.75rem, 2.6vw, 2.125rem);
+  /* Типографика: один нейтральный гротеск, крупно и жирно. */
+  --font: 'Hanken Grotesk Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --text-hero: clamp(3rem, 7vw, 6.5rem);
+  --text-mega: clamp(4rem, 16vw, 15rem); /* гигантский вордмарк */
+  --text-h1: clamp(2.5rem, 5vw, 4.5rem);
+  --text-h2: clamp(1.9rem, 3.4vw, 3rem);
   --text-h3: 1.375rem;
   --text-body: 1.125rem;
-  --text-meta: 1rem;
 
-  /* Форма и глубина */
-  --radius-window: 12px;
-  --radius-button: 8px;
-  --shadow-card: 0 1px 2px #2129340f;
-  --shadow-float: 0 24px 60px #21293424;
-  --shadow-focus: 0 0 0 3px #21293429;
+  --radius: 4px;
 
-  /* Движение */
   --ease-smooth: cubic-bezier(0.2, 0.8, 0.2, 1);
-  --dur-hover: 0.2s;
-  --dur-base: 0.4s;
+  --dur-hover: 0.22s;
+  --dur-base: 0.5s;
 
-  /* Ритм */
-  --grid-max: 1440px;
-  --gutter: clamp(1.25rem, 4vw, 1.5rem);
-  --rhythm-section: clamp(4.5rem, 9vw, 7.5rem);
+  --grid-max: 1500px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --rhythm: clamp(5rem, 11vw, 10rem);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,332 +1,249 @@
-.main {
-  padding-top: 88px; /* высота липкого хедера */
-}
-
-/* Двухколоночная сетка: статья + липкая дорожка-оглавление. */
-.grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: clamp(2rem, 5vw, 5rem);
-  padding-top: clamp(3rem, 6vw, 5rem);
-  padding-bottom: clamp(4rem, 8vw, 7rem);
-}
-
-@media (min-width: 960px) {
-  .grid {
-    grid-template-columns: minmax(0, 1fr) 22rem;
-  }
-}
-
-.article {
-  min-width: 0;
-}
-
 /* ── Hero ─────────────────────────────────────────────── */
 
 .hero {
-  padding-bottom: var(--rhythm-section);
+  padding-top: clamp(9rem, 18vh, 14rem);
+  padding-bottom: var(--rhythm);
 }
 
-.h1 {
-  font-size: var(--text-h1);
-  letter-spacing: -0.02em;
-  max-width: 15ch;
-}
-
-.lead {
-  max-width: 54ch;
+.heroTitle {
+  font-size: var(--text-hero);
+  max-width: 16ch;
   margin-top: 1.5rem;
-  font-size: clamp(1.15rem, 1.6vw, 1.375rem);
+}
+
+.heroLead {
+  max-width: 52ch;
+  margin-top: 1.75rem;
+  font-size: clamp(1.15rem, 1.5vw, 1.4rem);
   line-height: 1.5;
-  color: var(--body);
+  color: var(--on-soft);
   text-wrap: pretty;
 }
 
 .heroActions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.85rem;
-  margin-top: 2.25rem;
+  gap: 1rem;
+  margin-top: 2.5rem;
 }
 
 /* ── Кнопки ───────────────────────────────────────────── */
 
-.ctaAction {
+.ctaSolid {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  gap: 0.6em;
   height: 56px;
-  padding: 0 1.75rem;
-  background: var(--ink);
-  color: var(--on-ink);
-  border: 1px solid #161c24;
-  border-radius: var(--radius-button);
-  font-family: var(--font-body);
+  padding: 0 1.9rem;
+  background: var(--on);
+  color: var(--brand);
+  border-radius: var(--radius);
   font-weight: 600;
-  transition: background-color var(--dur-hover) var(--ease-smooth),
-    transform var(--dur-hover) var(--ease-smooth);
+  transition: gap var(--dur-hover) var(--ease-smooth), transform var(--dur-hover)
+      var(--ease-smooth);
 }
 
-.ctaAction:hover {
-  background: #161c24;
+.ctaSolid:hover {
+  gap: 1em;
   transform: translateY(-1px);
 }
 
-.ctaSecondary {
+.ctaGhost {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   height: 56px;
-  padding: 0 1.75rem;
-  background: var(--paper);
-  color: var(--ink);
-  border: 1px solid var(--rule-strong);
-  border-radius: var(--radius-button);
-  font-family: var(--font-body);
+  padding: 0 1.9rem;
+  color: var(--on);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
   font-weight: 600;
   transition: border-color var(--dur-hover) var(--ease-smooth);
 }
 
-.ctaSecondary:hover {
-  border-color: var(--ink);
+.ctaGhost:hover {
+  border-color: var(--on);
 }
 
 /* ── Секции ───────────────────────────────────────────── */
 
 .section {
-  padding-block: var(--rhythm-section);
-  border-top: 1px solid var(--rule);
+  padding-block: var(--rhythm);
+  border-top: 1px solid var(--line);
+}
+
+.sectionHead {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
 }
 
 .h2 {
   font-size: var(--text-h2);
-  margin-top: 0.5rem;
-  max-width: 20ch;
+  margin-top: 0.75rem;
+  max-width: 18ch;
 }
 
-.sectionLead {
-  max-width: 56ch;
-  margin-top: 1.25rem;
-  color: var(--body);
-  text-wrap: pretty;
-}
+/* ── Карточки маршрутов ───────────────────────────────── */
 
-.prose {
-  max-width: 62ch;
-  margin-top: 1.5rem;
-}
-
-.prose p + p {
-  margin-top: 1.25em;
-}
-
-.emphasis {
-  max-width: 62ch;
-  margin-top: 2rem;
-  font-size: 1.15rem;
-  line-height: 1.5;
-  color: var(--body);
-  text-wrap: pretty;
-}
-
-/* ── Карточки ─────────────────────────────────────────── */
-
-.cards2,
-.cards3 {
+.routeGrid {
   display: grid;
   gap: 1.25rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
 }
 
-.cards2 {
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+.routeCard {
+  padding: clamp(1.5rem, 2.5vw, 2.25rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: border-color var(--dur-hover) var(--ease-smooth), background-color var(--dur-hover)
+      var(--ease-smooth);
 }
 
-.cards3 {
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
-}
-
-.card {
-  padding: clamp(1.35rem, 2vw, 1.75rem);
-  background: var(--paper);
-  border: 1px solid var(--rule);
-  border-radius: var(--radius-window);
-  box-shadow: var(--shadow-card);
+.routeCard:hover {
+  border-color: var(--line-strong);
+  background: #ffffff0d;
 }
 
 .cardKicker {
-  font-family: var(--font-heading);
   font-size: 0.8125rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--body-soft);
+  color: var(--on-soft);
 }
 
 .badge {
   display: inline-block;
   margin-left: 0.6em;
   padding: 0.15em 0.5em;
-  background: var(--oxblood);
-  color: #fff;
-  border-radius: 4px;
+  background: var(--on);
+  color: var(--brand);
+  border-radius: 3px;
   font-size: 0.7rem;
   letter-spacing: 0.04em;
 }
 
-.cardTitle {
-  font-size: var(--text-h3);
-  margin-top: 0.6rem;
+.routeTitle {
+  font-size: 2rem;
+  margin-top: 0.7rem;
 }
 
-.cardMeta {
-  margin-top: 0.6rem;
+.routeMeta {
+  margin-top: 0.7rem;
   font-size: 0.95rem;
-  color: var(--body-soft);
-}
-
-.cardBody {
-  margin-top: 0.85rem;
-  color: var(--body);
-  text-wrap: pretty;
+  color: var(--on-soft);
 }
 
 .list {
-  margin: 1.25rem 0 0;
+  margin: 1.5rem 0 0;
   padding: 0;
   list-style: none;
-  border-top: 1px solid var(--rule);
+  border-top: 1px solid var(--line);
 }
 
 .list li {
-  padding: 0.5rem 0;
-  border-bottom: 1px solid var(--rule);
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--line);
   font-size: 0.98rem;
-  color: var(--ink);
 }
 
 .exclude {
-  margin-top: 1rem;
+  margin-top: 1.1rem;
   font-size: 0.9rem;
-  color: var(--body-soft);
+  color: var(--on-soft);
 }
 
 .cardFoot {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-  margin-top: 1.25rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--rule-strong);
+  margin-top: 1.5rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--line-strong);
 }
 
-.years {
-  font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -0.03em;
-  color: var(--ink);
-}
-
-.years span {
-  display: block;
-  margin-top: 0.7em;
-  color: var(--body-soft);
-}
-
-.note {
-  margin-top: 1.25rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--rule);
-  color: var(--body);
+.trap {
+  max-width: 62ch;
+  margin-top: 2.5rem;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  color: var(--on-soft);
   text-wrap: pretty;
 }
 
-/* ── Список ошибок ────────────────────────────────────── */
+/* ── Шаги ─────────────────────────────────────────────── */
 
-.issues {
-  margin: 2rem 0 0;
+.steps {
+  margin: 0;
   padding: 0;
   list-style: none;
-  border-top: 1px solid var(--rule-strong);
+  border-top: 1px solid var(--line-strong);
 }
 
-.issue {
+.step {
   display: grid;
-  grid-template-columns: 3rem 1fr;
-  gap: clamp(1rem, 3vw, 2.5rem);
+  grid-template-columns: 4rem 1fr;
+  gap: clamp(1rem, 3vw, 3rem);
   padding: 1.75rem 0;
-  border-bottom: 1px solid var(--rule);
+  border-bottom: 1px solid var(--line);
 }
 
-.issueNum {
-  font-family: var(--font-heading);
+.stepNum {
+  font-size: 1rem;
   font-weight: 600;
-  color: var(--oxblood);
+  color: var(--on-faint);
 }
 
-.issueTitle {
-  font-size: 1.3rem;
+.stepTitle {
+  font-size: 1.5rem;
   margin-bottom: 0.5rem;
 }
 
-/* ── Цены ─────────────────────────────────────────────── */
-
-.price {
-  font-family: var(--font-heading);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--oxblood);
-  padding-bottom: 1rem;
-  border-bottom: 1px solid var(--rule);
-}
-
-.subLabel {
-  margin-top: 3rem;
-}
-
-.fees {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
-  gap: 1px;
-  margin-top: 1rem;
-  background: var(--rule);
-  border: 1px solid var(--rule);
-  border-radius: var(--radius-window);
-  overflow: hidden;
-}
-
-.fee {
-  padding: clamp(1.25rem, 2vw, 1.75rem);
-  background: var(--paper);
-}
-
-.feeNum {
-  font-family: var(--font-heading);
-  font-size: clamp(1.75rem, 2.6vw, 2.25rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1;
-  color: var(--ink);
-  margin-bottom: 0.6rem;
-}
-
-.footnote {
+.stepBody {
   max-width: 60ch;
-  margin-top: 1.5rem;
-  font-size: 0.95rem;
-  color: var(--body-soft);
+  color: var(--on-soft);
   text-wrap: pretty;
 }
 
-/* ── Форма ────────────────────────────────────────────── */
+/* ── Факты ────────────────────────────────────────────── */
+
+.factGrid {
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.fact {
+  padding: clamp(1.75rem, 3vw, 2.75rem);
+  background: var(--brand);
+}
+
+.factNum {
+  font-size: clamp(2.75rem, 5vw, 4.25rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.factLabel {
+  margin-top: 1rem;
+  color: var(--on-soft);
+  text-wrap: pretty;
+}
+
+/* ── Contact ──────────────────────────────────────────── */
+
+.contactLead {
+  max-width: 54ch;
+  margin-top: 1.25rem;
+  color: var(--on-soft);
+  text-wrap: pretty;
+}
 
 .form {
   max-width: 44rem;
-  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -347,19 +264,24 @@
 .field input,
 .field textarea {
   font: inherit;
-  color: var(--ink);
+  color: var(--on);
   padding: 0.85rem 1rem;
-  background: var(--paper);
-  border: 1px solid var(--rule-strong);
-  border-radius: var(--radius-button);
+  background: #ffffff0d;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
   resize: vertical;
   transition: border-color var(--dur-hover) var(--ease-smooth);
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--on-faint);
 }
 
 .field input:focus,
 .field textarea:focus {
   outline: none;
-  border-color: var(--ink);
+  border-color: var(--on);
 }
 
 .fieldset {
@@ -380,44 +302,56 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.75rem 1rem;
-  border: 1px solid var(--rule);
-  border-radius: var(--radius-button);
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
   cursor: pointer;
   font-size: 0.98rem;
-  transition: border-color var(--dur-hover) var(--ease-smooth),
-    background-color var(--dur-hover) var(--ease-smooth);
+  transition: border-color var(--dur-hover) var(--ease-smooth), background-color var(--dur-hover)
+      var(--ease-smooth);
 }
 
 .radio:hover {
-  border-color: var(--rule-strong);
+  border-color: var(--line-strong);
 }
 
 .radio:has(input:checked) {
-  border-color: var(--oxblood);
-  background: #a5261610;
+  border-color: var(--on);
+  background: #ffffff14;
 }
 
 .radio input {
-  accent-color: var(--oxblood);
+  accent-color: var(--on);
 }
 
 .done {
   max-width: 44rem;
-  margin-top: 2rem;
   padding: 2rem;
-  background: var(--paper-2);
-  border: 1px solid var(--rule);
-  border-radius: var(--radius-window);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: #ffffff0d;
 }
 
 .doneText {
   margin-top: 0.75rem;
   max-width: 46ch;
-  color: var(--body);
+  color: var(--on-soft);
   text-wrap: pretty;
 }
 
 .verified {
   margin-top: 2.5rem;
+}
+
+/* ── Гигантский вордмарк ──────────────────────────────── */
+
+.wordmark {
+  font-size: var(--text-mega);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.82;
+  padding: clamp(2rem, 5vw, 5rem) var(--gutter) 0;
+  color: var(--on);
+  white-space: nowrap;
+  overflow: hidden;
 }

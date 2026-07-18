@@ -3,10 +3,9 @@ import { useLocation } from 'react-router-dom'
 import styles from './Header.module.css'
 
 const NAV = [
-  { label: 'Overview', to: '#top' },
   { label: 'Two routes', to: '#routes' },
+  { label: 'Approach', to: '#approach' },
   { label: 'Pricing', to: '#pricing' },
-  { label: 'FAQ', to: '#faq' },
 ]
 
 export default function Header() {
@@ -16,11 +15,10 @@ export default function Header() {
   useEffect(() => setOpen(false), [hash])
 
   return (
-    <header className={`${styles.header} ${styles.tweed}`} data-open={open}>
+    <header className={styles.header} data-open={open}>
       <div className={styles.inner}>
         <a href="#top" className={styles.brand}>
-          <span className={styles.brandName}>Calista Law</span>
-          <span className={styles.brandTag}>UK Global Talent · Immigration for designers</span>
+          Calista Law
         </a>
 
         <nav className={styles.nav}>
@@ -29,8 +27,8 @@ export default function Header() {
               {item.label}
             </a>
           ))}
-          <a href="#enquiry" className={styles.cta}>
-            Free callback
+          <a href="#contact" className={styles.cta}>
+            Book a call
           </a>
         </nav>
 
@@ -47,7 +45,7 @@ export default function Header() {
       </div>
 
       <nav className={styles.mobilePanel}>
-        {[...NAV, { label: 'Enquire', to: '#enquiry' }].map((item) => (
+        {[...NAV, { label: 'Contact', to: '#contact' }].map((item) => (
           <a key={item.to} href={item.to} className={styles.mobileLink} onClick={() => setOpen(false)}>
             {item.label}
           </a>

@@ -1,9 +1,10 @@
 .acc {
-  border-top: 1px solid var(--rule);
+  border-top: 1px solid var(--line-strong);
+  max-width: 70rem;
 }
 
 .item {
-  border-bottom: 1px solid var(--rule);
+  border-bottom: 1px solid var(--line);
 }
 
 .head {
@@ -12,18 +13,16 @@
   justify-content: space-between;
   gap: 1.5rem;
   width: 100%;
-  padding: 1.35rem 0;
+  padding: 1.4rem 0;
   text-align: left;
 }
 
 .q {
-  font-family: var(--font-heading);
+  font-size: 1.25rem;
   font-weight: 600;
-  font-size: 1.2rem;
-  color: var(--ink);
+  color: var(--on);
 }
 
-/* Плюс/минус: горизонталь всегда, вертикаль исчезает при раскрытии. */
 .sign {
   position: relative;
   flex: none;
@@ -35,7 +34,7 @@
 .sign::after {
   content: '';
   position: absolute;
-  background: var(--ink);
+  background: var(--on);
   transition: opacity var(--dur-hover) var(--ease-smooth);
 }
 
@@ -64,8 +63,8 @@
 }
 
 .a {
-  padding-bottom: 1.35rem;
-  max-width: 60ch;
-  color: var(--body);
+  padding-bottom: 1.4rem;
+  max-width: 62ch;
+  color: var(--on-soft);
   text-wrap: pretty;
 }
