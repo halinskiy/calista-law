@@ -29,10 +29,10 @@ export default function Home() {
               decision. We make sure your case goes to the right door.
             </p>
             <div className={styles.heroActions}>
-              <a href="#contact" className={styles.ctaSolid}>
+              <a href="#contact" className={styles.heroSolid}>
                 Book a free assessment <span aria-hidden="true">→</span>
               </a>
-              <a href="#routes" className={styles.ctaGhost}>
+              <a href="#routes" className={styles.heroGhost}>
                 See the two routes
               </a>
             </div>
@@ -96,8 +96,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Facts — крупные цифры */}
-        <section id="facts" className={styles.section}>
+        {/* Facts — синий акцентный блок с крупными цифрами */}
+        <section id="facts" className={styles.facts}>
           <div className="container">
             <div className={styles.factGrid}>
               <div className={styles.fact}>

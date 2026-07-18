@@ -20,7 +20,7 @@
 .q {
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--on);
+  color: var(--ink);
 }
 
 .sign {
@@ -34,7 +34,7 @@
 .sign::after {
   content: '';
   position: absolute;
-  background: var(--on);
+  background: var(--brand);
   transition: opacity var(--dur-hover) var(--ease-smooth);
 }
 
@@ -65,6 +65,6 @@
 .a {
   padding-bottom: 1.4rem;
   max-width: 62ch;
-  color: var(--on-soft);
+  color: var(--body);
   text-wrap: pretty;
 }

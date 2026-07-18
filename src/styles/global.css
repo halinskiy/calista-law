@@ -22,15 +22,15 @@ body,
 #root {
   margin: 0;
   min-height: 100%;
-  /* Синий заливает всю страницу — фон живёт на body, не на секциях. */
-  background: var(--brand);
+  /* Светлый фон для чтения; синий приходит акцентными блоками. */
+  background: var(--paper);
 }
 
 body {
   font-family: var(--font);
   font-size: var(--text-body);
-  line-height: 1.55;
-  color: var(--on);
+  line-height: 1.6;
+  color: var(--body);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -49,8 +49,8 @@ h2,
 h3 {
   font-weight: 700;
   letter-spacing: -0.03em;
-  line-height: 1;
-  color: var(--on);
+  line-height: 1.02;
+  color: var(--ink);
   text-wrap: balance;
 }
 
@@ -73,7 +73,7 @@ img {
 }
 
 :focus-visible {
-  outline: 2px solid var(--on);
+  outline: 2px solid var(--brand);
   outline-offset: 3px;
 }
 
@@ -90,5 +90,5 @@ img {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--on-soft);
+  color: var(--muted);
 }

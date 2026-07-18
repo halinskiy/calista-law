@@ -6,7 +6,7 @@ export default function NotFound() {
       <p className="mono">404</p>
       <h1 style={{ marginTop: '0.5rem' }}>Page not found</h1>
       <p style={{ marginTop: '1rem' }}>
-        <Link to="/" style={{ color: 'var(--oxblood)' }}>
+        <Link to="/" style={{ color: 'var(--brand)', fontWeight: 600 }}>
           Back to home →
         </Link>
       </p>

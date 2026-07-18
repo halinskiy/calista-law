@@ -1,5 +1,5 @@
 .footer {
-  background: var(--brand-deep);
+  background: var(--ink);
   color: var(--on);
 }
 
@@ -46,7 +46,7 @@
   gap: 1rem;
   margin-top: clamp(3rem, 6vw, 4.5rem);
   padding-top: 2rem;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--line-on);
 }
 
 .disclaimer {
