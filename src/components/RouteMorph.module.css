@@ -12,8 +12,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: clamp(1.5rem, 3vw, 2.5rem);
-  padding: 8vh var(--gutter);
+  gap: clamp(1rem, 2vw, 1.75rem);
+  /* Верхний отступ под fixed-хедер, иначе заголовок морфа уезжает ему под низ. */
+  padding: calc(72px + 2vh) var(--gutter) 4vh;
 }
 
 /* ── Заголовок: две строки в кроссфейде по --r ─────────── */
@@ -24,9 +25,9 @@
 
 .title {
   position: relative;
-  font-size: var(--step-h1);
+  font-size: var(--step-h2);
   /* ch считается от шрифта самого элемента: на родителе с базовым кеглем оно бьёт текст по словам. */
-  max-width: 18ch;
+  max-width: 22ch;
   margin: 0.4em auto 0;
 }
 
@@ -87,7 +88,7 @@
 }
 
 .halfInner {
-  padding: clamp(1.5rem, 2.4vw, 2.5rem);
+  padding: clamp(1.25rem, 2vw, 2rem);
   /* Контент проявляется по мере расхождения: в собранном виде поверх него лежит общий слой. */
   opacity: var(--r);
   transition: opacity 0.1s linear;
@@ -115,16 +116,16 @@
 }
 
 .list {
-  margin: 1.5em 0 0;
+  margin: 1.1em 0 0;
   padding: 0;
   list-style: none;
   border-top: 1px solid var(--hairline);
 }
 
 .list li {
-  padding: 0.5em 0;
+  padding: 0.42em 0;
   border-bottom: 1px solid var(--hairline);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
 }
 
 .excluded {
@@ -137,14 +138,14 @@
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-  margin-top: 1.5em;
-  padding-top: 1.1em;
+  margin-top: 1.1em;
+  padding-top: 0.9em;
   border-top: 1px solid var(--hairline-strong);
 }
 
 .halfLink {
   display: inline-block;
-  margin-top: 1.5em;
+  margin-top: 1.1em;
   border-bottom: 1px solid currentColor;
   padding-bottom: 2px;
   transition: color var(--dur-fast) var(--ease-out);

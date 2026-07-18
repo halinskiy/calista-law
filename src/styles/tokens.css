@@ -17,7 +17,8 @@
   --hairline-strong: #10101430;
 
   /* Типографика */
-  --font-sans: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-sans: 'Inter Tight Variable', 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    sans-serif;
   --font-mono: ui-monospace, 'SF Mono', 'JetBrains Mono', monospace;
 
   --step-display: clamp(3.5rem, 9vw, 9.5rem);

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import MaskedHeading from '../components/MaskedHeading'
 import Cursor from '../components/Cursor'
 import RouteMorph from '../components/RouteMorph'
+import Footer from '../components/Footer'
 import { FEES, GRADES, PITFALLS, LAST_VERIFIED } from '../content/visa'
 import styles from './Home.module.css'
 
@@ -115,7 +116,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className={styles.honesty} id="honesty">
+        <section className={styles.honesty} id="honesty" data-nav-theme="dark">
           <div className="container">
             <p className="mono">05 / One thing we will not show you</p>
             <MaskedHeading as="h2" text="We have no success rate to quote." />
@@ -136,6 +137,7 @@ export default function Home() {
           </div>
         </section>
       </main>
+      <Footer />
     </>
   )
 }

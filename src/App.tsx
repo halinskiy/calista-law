@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import { initSmoothScroll, getLenis } from './lib/smooth-scroll'
 
+import Header from './components/Header'
 import Home from './routes/Home'
 
 /**
@@ -35,6 +36,7 @@ export default function App() {
   return (
     <>
       <ScrollToTop />
+      <Header />
       <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<Home />} />

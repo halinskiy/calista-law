@@ -1,0 +1,122 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  /* Полупрозрачный поверх атмосферы: стекло чуть просвечивает под хедером. */
+  background: color-mix(in srgb, var(--bg) 72%, transparent);
+  backdrop-filter: blur(12px) saturate(1.2);
+  border-bottom: 1px solid var(--hairline);
+  color: var(--text);
+  transition: background-color var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out);
+}
+
+/* Над тёмной секцией: инвертируем, чтобы навигация не тонула в сером. */
+.header[data-on-dark='true'] {
+  background: color-mix(in srgb, var(--bg-ink) 60%, transparent);
+  border-bottom-color: #f2f1ee1f;
+  color: var(--text-on-ink);
+}
+
+.inner {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding: 0.9rem var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.brand .mono {
+  margin-top: 2px;
+  font-size: 0.62rem;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 2rem);
+}
+
+.link,
+.linkActive {
+  position: relative;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.link:hover {
+  color: var(--text);
+}
+
+.linkActive {
+  color: var(--text);
+}
+
+.linkActive::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 1px;
+  background: var(--brass);
+}
+
+.cta {
+  padding: 0.5rem 1.1rem;
+  font-size: 0.95rem;
+  color: var(--text-on-ink);
+  background: var(--accent);
+  border-radius: 2px;
+  transition: transform var(--dur-fast) var(--ease-out), background-color var(--dur-fast)
+      var(--ease-out);
+}
+
+.cta:hover {
+  transform: translateY(-1px);
+  background: var(--bg-ink);
+}
+
+/* Тёмная тема: цвета текста и ссылок следуют за фоном хедера. */
+.header[data-on-dark='true'] .link,
+.header[data-on-dark='true'] .brand .mono {
+  color: #f2f1ee80;
+}
+
+.header[data-on-dark='true'] .link:hover,
+.header[data-on-dark='true'] .linkActive {
+  color: var(--text-on-ink);
+}
+
+.progress {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 2px;
+  background: var(--brass);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+@media (max-width: 640px) {
+  /* Узкий экран: прячем вторичную навигацию, оставляем бренд и CTA. Полное меню — позже. */
+  .nav .link,
+  .nav .linkActive {
+    display: none;
+  }
+}
