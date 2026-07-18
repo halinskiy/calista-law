@@ -11,6 +11,48 @@
 
 export const LAST_VERIFIED = '17 July 2026'
 
+/** Оглавление лонгрида. Порядок = порядок секций на странице; accent красит метку oxblood. */
+export const TOC = [
+  { id: 'what-is', label: 'What it is' },
+  { id: 'routes', label: 'Two routes' },
+  { id: 'evidence', label: 'Evidence' },
+  { id: 'grade', label: 'Talent or promise' },
+  { id: 'mistakes', label: 'Common mistakes' },
+  { id: 'pricing', label: 'Pricing', accent: true },
+  { id: 'faq', label: 'FAQ' },
+  { id: 'enquiry', label: 'Enquire' },
+] as const
+
+export const TOC_SUMMARY =
+  'A designer’s guide to the UK Global Talent visa: the two endorsing bodies, the evidence that decides it, what it costs, and how to instruct us.'
+
+export const HERO = {
+  title: 'Global Talent visa, built for designers.',
+  lead: 'The Home Office lets designers settle in the UK on the strength of their work, with no job offer and the freedom to freelance. Since 1 July 2026 there are two routes to it, and the wrong one costs £561 and returns no decision. We make sure your case goes to the right door.',
+}
+
+/** Секция «What it is» — проза. */
+export const WHAT_IS = [
+  'The Global Talent visa is for people recognised as leaders, or as likely future leaders, in their field. For a designer it means you can move to the UK, work as an employee, a director and a freelancer at the same time, change or leave a job without telling the Home Office, and put yourself on a path to settlement.',
+  'There is no employer sponsoring you and no minimum salary. What carries the application is evidence of your work and standing. The hard part is not the visa form at the end, it is the endorsement before it, where an approved body judges whether your record clears the bar.',
+]
+
+/** Секция «Evidence» — 3 карты того, что решает исход. */
+export const EVIDENCE = [
+  {
+    title: 'Your work, not the company’s',
+    body: 'Evidence that proves your studio shipped something proves nothing about you. Each document has to isolate your personal contribution. This is where designers lose most often.',
+  },
+  {
+    title: 'Scans, never links',
+    body: 'The Home Office does not accept web links or digital files. A Behance or Figma URL is a discarded document. What counts is a scan of the page with the hyperlink visible on it.',
+  },
+  {
+    title: 'The right referees',
+    body: 'Three letters from organisations that know your work, at least one in the UK. Not your manager, not a colleague, not a friend. Letters alone never carry a criterion, they corroborate the evidence.',
+  },
+]
+
 export type RouteId = 'design' | 'digital'
 
 export type Route = {

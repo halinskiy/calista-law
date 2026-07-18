@@ -1,49 +1,55 @@
 :root {
-  /* Поверхности. Тёплый off-white, не белый: белый на большом поле читается как незаполненный документ. */
-  --bg: #f6f5f2;
-  --bg-raised: #fbfaf8;
-  --bg-ink: #101014;
+  /* Палитра Cromwell: charcoal-navy + oxblood, консервативный юридический тон. */
+  --paper: #ffffff;
+  --paper-2: #f7f7f7;
+  --ink: #212934; /* хедер, заголовки, тёмный UI */
+  --oxblood: #a52616; /* красный акцент: CTA, цена, emphasis */
+  --oxblood-deep: #861c0f;
+  --link: #198fd9;
 
-  --text: #101014;
-  --text-muted: #61616a;
-  --text-on-ink: #f2f1ee;
+  --on-ink: #f5f4f2; /* текст на тёмном */
+  --on-ink-soft: #b8bcc2;
+  --body: #46494a; /* основной текст */
+  --body-soft: #595959; /* приглушённый, eyebrow */
 
-  /* Акцент один: чернильный синий. Латунь только для состояний и меток. */
-  --accent: #16324f;
-  --accent-soft: #16324f14;
-  --brass: #a8823c;
+  --rule: #e5e4e3; /* волосяные линии, рамки карточек */
+  --rule-strong: #cfcecd;
+  --rule-ink: #38414d; /* граница на тёмном хедере */
 
-  --hairline: #10101418;
-  --hairline-strong: #10101430;
+  /* Типографика. Montserrat в заголовках/навигации, Hanken в тексте, Newsreader-serif дозированно. */
+  --font-display: 'Newsreader Variable', Georgia, 'Times New Roman', serif;
+  --font-body: 'Hanken Grotesk Variable', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Montserrat', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', monospace;
 
-  /* Типографика */
-  --font-sans: 'Inter Tight Variable', 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    sans-serif;
-  --font-mono: ui-monospace, 'SF Mono', 'JetBrains Mono', monospace;
+  --text-display: clamp(2.75rem, 5vw, 3.625rem);
+  --text-h1: clamp(2.25rem, 4.4vw, 3.625rem);
+  --text-h2: clamp(1.75rem, 2.6vw, 2.125rem);
+  --text-h3: 1.375rem;
+  --text-body: 1.125rem;
+  --text-meta: 1rem;
 
-  --step-display: clamp(3.5rem, 9vw, 9.5rem);
-  --step-h1: clamp(2.5rem, 5.5vw, 5rem);
-  --step-h2: clamp(1.75rem, 3vw, 2.75rem);
-  --step-body: clamp(1rem, 1.15vw, 1.125rem);
-  --step-mono: 0.75rem;
+  /* Форма и глубина */
+  --radius-window: 12px;
+  --radius-button: 8px;
+  --shadow-card: 0 1px 2px #2129340f;
+  --shadow-float: 0 24px 60px #21293424;
+  --shadow-focus: 0 0 0 3px #21293429;
+
+  /* Движение */
+  --ease-smooth: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --dur-hover: 0.2s;
+  --dur-base: 0.4s;
 
   /* Ритм */
-  --container: 1440px;
-  --gutter: clamp(1.25rem, 4vw, 4rem);
-  --section-y: clamp(5rem, 10vw, 9rem);
-
-  /* Движение. Один язык easing на весь сайт. */
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-  --dur-fast: 240ms;
-  --dur-base: 560ms;
-  --dur-slow: 900ms;
+  --grid-max: 1440px;
+  --gutter: clamp(1.25rem, 4vw, 1.5rem);
+  --rhythm-section: clamp(4.5rem, 9vw, 7.5rem);
 }
 
 @media (prefers-reduced-motion: reduce) {
   :root {
-    --dur-fast: 1ms;
+    --dur-hover: 1ms;
     --dur-base: 1ms;
-    --dur-slow: 1ms;
   }
 }

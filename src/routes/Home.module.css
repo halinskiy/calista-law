@@ -1,172 +1,423 @@
 .main {
-  position: relative;
-  z-index: 1;
+  padding-top: 88px; /* высота липкого хедера */
 }
 
-/* ── Общие секции ─────────────────────────────────────── */
+/* Двухколоночная сетка: статья + липкая дорожка-оглавление. */
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  padding-top: clamp(3rem, 6vw, 5rem);
+  padding-bottom: clamp(4rem, 8vw, 7rem);
+}
+
+@media (min-width: 960px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr) 22rem;
+  }
+}
+
+.article {
+  min-width: 0;
+}
+
+/* ── Hero ─────────────────────────────────────────────── */
+
+.hero {
+  padding-bottom: var(--rhythm-section);
+}
+
+.h1 {
+  font-size: var(--text-h1);
+  letter-spacing: -0.02em;
+  max-width: 15ch;
+}
+
+.lead {
+  max-width: 54ch;
+  margin-top: 1.5rem;
+  font-size: clamp(1.15rem, 1.6vw, 1.375rem);
+  line-height: 1.5;
+  color: var(--body);
+  text-wrap: pretty;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 2.25rem;
+}
+
+/* ── Кнопки ───────────────────────────────────────────── */
+
+.ctaAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  padding: 0 1.75rem;
+  background: var(--ink);
+  color: var(--on-ink);
+  border: 1px solid #161c24;
+  border-radius: var(--radius-button);
+  font-family: var(--font-body);
+  font-weight: 600;
+  transition: background-color var(--dur-hover) var(--ease-smooth),
+    transform var(--dur-hover) var(--ease-smooth);
+}
+
+.ctaAction:hover {
+  background: #161c24;
+  transform: translateY(-1px);
+}
+
+.ctaSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  padding: 0 1.75rem;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-button);
+  font-family: var(--font-body);
+  font-weight: 600;
+  transition: border-color var(--dur-hover) var(--ease-smooth);
+}
+
+.ctaSecondary:hover {
+  border-color: var(--ink);
+}
+
+/* ── Секции ───────────────────────────────────────────── */
 
 .section {
-  padding-block: var(--section-y);
-  border-top: 1px solid var(--hairline);
-  background: var(--bg);
+  padding-block: var(--rhythm-section);
+  border-top: 1px solid var(--rule);
 }
 
 .h2 {
-  font-size: var(--step-h1);
+  font-size: var(--text-h2);
+  margin-top: 0.5rem;
   max-width: 20ch;
-  margin-top: 0.4em;
 }
 
-.trap {
-  max-width: 60ch;
-  font-size: clamp(1.1rem, 1.6vw, 1.5rem);
-  line-height: 1.4;
-  padding-left: 1.25rem;
-  border-left: 2px solid var(--brass);
+.sectionLead {
+  max-width: 56ch;
+  margin-top: 1.25rem;
+  color: var(--body);
   text-wrap: pretty;
 }
 
-/* ── Talent / Promise ─────────────────────────────────── */
+.prose {
+  max-width: 62ch;
+  margin-top: 1.5rem;
+}
 
-.grades {
+.prose p + p {
+  margin-top: 1.25em;
+}
+
+.emphasis {
+  max-width: 62ch;
+  margin-top: 2rem;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  color: var(--body);
+  text-wrap: pretty;
+}
+
+/* ── Карточки ─────────────────────────────────────────── */
+
+.cards2,
+.cards3 {
   display: grid;
-  gap: clamp(1.5rem, 3vw, 3rem);
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
-  margin-top: clamp(3rem, 6vw, 4.5rem);
+  gap: 1.25rem;
+  margin-top: 2rem;
 }
 
-.grade {
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--hairline-strong);
+.cards2 {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
 }
 
-.gradeYears {
-  font-size: clamp(3rem, 5vw, 4.5rem);
-  line-height: 1;
-  letter-spacing: -0.04em;
-  color: var(--accent);
+.cards3 {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
 }
 
-.gradeYears span {
-  display: block;
-  margin-top: 0.9em;
-  color: var(--text-muted);
+.card {
+  padding: clamp(1.35rem, 2vw, 1.75rem);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-window);
+  box-shadow: var(--shadow-card);
 }
 
-.gradeTitle {
-  font-size: var(--step-h2);
-  margin: 0.8em 0 0.5em;
+.cardKicker {
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--body-soft);
 }
 
-.gradeCountries {
-  margin-top: 0.8em;
-  color: var(--text-muted);
+.badge {
+  display: inline-block;
+  margin-left: 0.6em;
+  padding: 0.15em 0.5em;
+  background: var(--oxblood);
+  color: #fff;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+}
+
+.cardTitle {
+  font-size: var(--text-h3);
+  margin-top: 0.6rem;
+}
+
+.cardMeta {
+  margin-top: 0.6rem;
   font-size: 0.95rem;
+  color: var(--body-soft);
 }
 
-.gradeNote {
-  margin-top: 1.5em;
-  padding-top: 1.25em;
-  border-top: 1px solid var(--hairline);
+.cardBody {
+  margin-top: 0.85rem;
+  color: var(--body);
   text-wrap: pretty;
 }
 
-/* ── Стоимость ────────────────────────────────────────── */
+.list {
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--rule);
+}
+
+.list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 0.98rem;
+  color: var(--ink);
+}
+
+.exclude {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--body-soft);
+}
+
+.cardFoot {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule-strong);
+}
+
+.years {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+
+.years span {
+  display: block;
+  margin-top: 0.7em;
+  color: var(--body-soft);
+}
+
+.note {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  color: var(--body);
+  text-wrap: pretty;
+}
+
+/* ── Список ошибок ────────────────────────────────────── */
+
+.issues {
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--rule-strong);
+}
+
+.issue {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.issueNum {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--oxblood);
+}
+
+.issueTitle {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ── Цены ─────────────────────────────────────────────── */
+
+.price {
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.subLabel {
+  margin-top: 3rem;
+}
 
 .fees {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
   gap: 1px;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
-  margin-top: clamp(3rem, 6vw, 4.5rem);
-  background: var(--hairline);
-  border: 1px solid var(--hairline);
+  margin-top: 1rem;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-window);
+  overflow: hidden;
 }
 
 .fee {
-  padding: clamp(1.5rem, 2.5vw, 2.5rem);
-  background: var(--bg);
+  padding: clamp(1.25rem, 2vw, 1.75rem);
+  background: var(--paper);
 }
 
 .feeNum {
-  font-size: clamp(2rem, 3.2vw, 2.75rem);
-  letter-spacing: -0.04em;
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 2.6vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
   line-height: 1;
-  margin-bottom: 0.7em;
+  color: var(--ink);
+  margin-bottom: 0.6rem;
 }
 
 .footnote {
-  max-width: 58ch;
-  margin-top: 2rem;
-  color: var(--text-muted);
+  max-width: 60ch;
+  margin-top: 1.5rem;
   font-size: 0.95rem;
+  color: var(--body-soft);
   text-wrap: pretty;
 }
 
-/* ── Провалы ──────────────────────────────────────────── */
+/* ── Форма ────────────────────────────────────────────── */
 
-.pitfalls {
+.form {
+  max-width: 44rem;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formRow {
   display: grid;
-  gap: clamp(2rem, 3vw, 3rem);
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
-  margin-top: clamp(3rem, 6vw, 4.5rem);
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
 }
 
-.pitfall {
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--hairline-strong);
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
 }
 
-.pitfallTitle {
-  font-size: 1.35rem;
-  margin: 0.6em 0 0.6em;
+.field input,
+.field textarea {
+  font: inherit;
+  color: var(--ink);
+  padding: 0.85rem 1rem;
+  background: var(--paper);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-button);
+  resize: vertical;
+  transition: border-color var(--dur-hover) var(--ease-smooth);
 }
 
-.pitfall p:last-child {
-  color: var(--text-muted);
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--ink);
+}
+
+.fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.fieldset legend {
+  margin-bottom: 0.5rem;
+  padding: 0;
+}
+
+.radio {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-button);
+  cursor: pointer;
+  font-size: 0.98rem;
+  transition: border-color var(--dur-hover) var(--ease-smooth),
+    background-color var(--dur-hover) var(--ease-smooth);
+}
+
+.radio:hover {
+  border-color: var(--rule-strong);
+}
+
+.radio:has(input:checked) {
+  border-color: var(--oxblood);
+  background: #a5261610;
+}
+
+.radio input {
+  accent-color: var(--oxblood);
+}
+
+.done {
+  max-width: 44rem;
+  margin-top: 2rem;
+  padding: 2rem;
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-window);
+}
+
+.doneText {
+  margin-top: 0.75rem;
+  max-width: 46ch;
+  color: var(--body);
   text-wrap: pretty;
-}
-
-/* ── Честность ────────────────────────────────────────── */
-
-.honesty {
-  padding-block: var(--section-y);
-  background: var(--bg-ink);
-  color: var(--text-on-ink);
-}
-
-.honestyH2 {
-  font-size: var(--step-h1);
-  max-width: 18ch;
-  margin-top: 0.4em;
-}
-
-.honesty .mono {
-  color: #f2f1ee80;
-}
-
-.honestyBody {
-  max-width: 62ch;
-  margin-top: 2em;
-  color: #f2f1eeb0;
-  text-wrap: pretty;
-}
-
-.cta {
-  display: inline-block;
-  margin-top: 3rem;
-  padding: 1rem 2rem;
-  border: 1px solid #f2f1ee40;
-  border-radius: 2px;
-  transition: transform var(--dur-fast) var(--ease-out),
-    background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
-}
-
-.cta:hover {
-  transform: translateY(-2px);
-  background: var(--text-on-ink);
-  color: var(--bg-ink);
 }
 
 .verified {
-  margin-top: 4rem;
+  margin-top: 2.5rem;
 }

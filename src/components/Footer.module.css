@@ -1,45 +1,78 @@
 .footer {
   position: relative;
+  background: var(--ink);
+  color: var(--on-ink);
+}
+
+.tweed::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: repeating-linear-gradient(45deg, var(--on-ink) 0 1px, transparent 1px 6px),
+    repeating-linear-gradient(-45deg, var(--on-ink) 0 1px, transparent 1px 6px);
+  background-size: 8px 8px;
+}
+
+.inner {
+  position: relative;
   z-index: 1;
-  background: var(--bg-ink);
-  color: var(--text-on-ink);
-  padding-block: clamp(3rem, 6vw, 5rem);
+  max-width: var(--grid-max);
+  margin-inline: auto;
+  padding: clamp(3rem, 6vw, 5rem) var(--gutter);
 }
 
 .top {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 2rem;
+  gap: 2.5rem;
   padding-bottom: 2.5rem;
-  border-bottom: 1px solid #f2f1ee1f;
+  border-bottom: 1px solid var(--rule-ink);
 }
 
-.name {
-  font-size: 1.5rem;
+.brandName {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
   font-weight: 500;
-  letter-spacing: -0.02em;
+  color: var(--on-ink);
 }
 
-.tag {
-  margin-top: 0.4em;
-  color: #f2f1ee80;
+.brandTag {
+  margin-top: 0.4rem;
+  color: var(--on-ink-soft);
 }
 
-.nav {
+.cols {
   display: flex;
   flex-wrap: wrap;
-  gap: clamp(1rem, 2.5vw, 2.5rem);
-  align-items: flex-start;
+  gap: clamp(2rem, 5vw, 4rem);
 }
 
-.nav a {
-  color: #f2f1eeb0;
-  transition: color var(--dur-fast) var(--ease-out);
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
-.nav a:hover {
-  color: var(--text-on-ink);
+.col .mono {
+  color: var(--on-ink-soft);
+  margin-bottom: 0.4rem;
+}
+
+.col p,
+.col a {
+  color: #d8dade;
+  font-size: 0.98rem;
+}
+
+.col a {
+  transition: color var(--dur-hover) var(--ease-smooth);
+}
+
+.col a:hover {
+  color: var(--on-ink);
 }
 
 .bottom {
@@ -54,10 +87,10 @@
 .disclaimer {
   max-width: 64ch;
   font-size: 0.85rem;
-  color: #f2f1ee70;
+  color: var(--on-ink-soft);
   text-wrap: pretty;
 }
 
 .bottom .mono {
-  color: #f2f1ee55;
+  color: var(--on-ink-soft);
 }

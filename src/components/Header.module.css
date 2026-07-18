@@ -3,125 +3,102 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
-  /* Полупрозрачный поверх атмосферы: стекло чуть просвечивает под хедером. */
-  background: color-mix(in srgb, var(--bg) 72%, transparent);
-  backdrop-filter: blur(12px) saturate(1.2);
-  border-bottom: 1px solid var(--hairline);
-  color: var(--text);
-  transition: background-color var(--dur-base) var(--ease-out),
-    border-color var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out);
+  z-index: 80;
+  background: var(--ink);
+  border-bottom: 1px solid var(--rule-ink);
 }
 
-/* Над тёмной секцией: инвертируем, чтобы навигация не тонула в сером. */
-.header[data-on-dark='true'] {
-  background: color-mix(in srgb, var(--bg-ink) 60%, transparent);
-  border-bottom-color: #f2f1ee1f;
-  color: var(--text-on-ink);
-}
-
-/* Открытое мобильное меню: сплошной фон, иначе список тонет в просвечивающем контенте. */
-.header[data-open='true'] {
-  background: var(--bg);
+/* Крестовидная фактура-твид на тёмном хедере, как у референса. */
+.tweed::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: repeating-linear-gradient(45deg, var(--on-ink) 0 1px, transparent 1px 6px),
+    repeating-linear-gradient(-45deg, var(--on-ink) 0 1px, transparent 1px 6px);
+  background-size: 8px 8px;
 }
 
 .inner {
   position: relative;
-  /* Бар над полноэкранной панелью-оверлеем. */
   z-index: 1;
-  max-width: var(--container);
+  max-width: var(--grid-max);
   margin-inline: auto;
-  padding: 0.9rem var(--gutter);
+  min-height: 88px;
+  padding: 0 var(--gutter);
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 1.5rem;
 }
 
 .brand {
   display: flex;
   flex-direction: column;
-  line-height: 1.1;
-  font-size: 1.05rem;
-  font-weight: 500;
-  letter-spacing: -0.02em;
+  margin-right: auto;
+  line-height: 1.15;
 }
 
-.brand .mono {
-  margin-top: 2px;
+.brandName {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--on-ink);
+}
+
+.brandTag {
+  margin-top: 3px;
+  font-family: var(--font-heading);
   font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--on-ink-soft);
 }
 
 .nav {
   display: flex;
   align-items: center;
-  gap: clamp(1rem, 2vw, 2rem);
+  gap: 1.4rem;
 }
 
-.link,
-.linkActive {
-  position: relative;
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  transition: color var(--dur-fast) var(--ease-out);
+.link {
+  font-family: var(--font-heading);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--on-ink);
+  opacity: 0.85;
+  transition: opacity var(--dur-hover) var(--ease-smooth);
 }
 
 .link:hover {
-  color: var(--text);
-}
-
-.linkActive {
-  color: var(--text);
-}
-
-.linkActive::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -4px;
-  height: 1px;
-  background: var(--brass);
+  opacity: 1;
 }
 
 .cta {
-  padding: 0.5rem 1.1rem;
-  font-size: 0.95rem;
-  color: var(--text-on-ink);
-  background: var(--accent);
-  border-radius: 2px;
-  transition: transform var(--dur-fast) var(--ease-out), background-color var(--dur-fast)
-      var(--ease-out);
+  display: inline-flex;
+  align-items: center;
+  height: 46px;
+  padding: 0 1.4rem;
+  background: var(--oxblood);
+  color: var(--on-ink);
+  border-radius: var(--radius-button);
+  font-family: var(--font-heading);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: background-color var(--dur-hover) var(--ease-smooth);
 }
 
 .cta:hover {
-  transform: translateY(-1px);
-  background: var(--bg-ink);
+  background: var(--oxblood-deep);
 }
 
-/* Тёмная тема: цвета текста и ссылок следуют за фоном хедера. */
-.header[data-on-dark='true'] .link,
-.header[data-on-dark='true'] .brand .mono {
-  color: #f2f1ee80;
-}
-
-.header[data-on-dark='true'] .link:hover,
-.header[data-on-dark='true'] .linkActive {
-  color: var(--text-on-ink);
-}
-
-.progress {
-  position: absolute;
-  left: 0;
-  bottom: -1px;
-  width: 100%;
-  height: 2px;
-  background: var(--brass);
-  transform: scaleX(0);
-  transform-origin: left;
-}
-
-/* ── Бургер и мобильная панель ─────────────────────────── */
+/* ── Бургер + мобильная панель ─────────────────────────── */
 
 .burger {
   display: none;
@@ -138,8 +115,9 @@
   width: 22px;
   height: 1.5px;
   margin-inline: auto;
-  background: currentColor;
-  transition: transform var(--dur-fast) var(--ease-out), opacity var(--dur-fast) var(--ease-out);
+  background: var(--on-ink);
+  transition: transform var(--dur-hover) var(--ease-smooth), opacity var(--dur-hover)
+      var(--ease-smooth);
 }
 
 .header[data-open='true'] .burger span:first-child {
@@ -156,31 +134,24 @@
   top: 0;
   left: 0;
   right: 0;
-  /* Явная высота, а не inset:0: backdrop-filter хедера делает его containing block для fixed,
-     и bottom:0 дал бы высоту хедера (124px), а не экрана. */
   height: 100dvh;
-  /* Полноэкранный оверлей: короткая панель обрывалась, и под ней просвечивал контент страницы. */
-  padding: 92px var(--gutter) 2rem;
-  background: var(--bg);
+  padding: 96px var(--gutter) 2rem;
+  background: var(--ink);
   flex-direction: column;
   gap: 0.25rem;
   z-index: 0;
 }
 
-.mobileLink,
-.mobileLinkActive {
-  padding: 0.85rem 0;
-  font-size: 1.25rem;
-  border-bottom: 1px solid var(--hairline);
-  color: var(--text);
+.mobileLink {
+  padding: 1rem 0;
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--on-ink);
+  border-bottom: 1px solid var(--rule-ink);
 }
 
-.mobileLinkActive {
-  color: var(--brass);
-}
-
-@media (max-width: 720px) {
-  /* Узкий экран: полная навигация и CTA прячутся, всё уходит в бургер-панель. */
+@media (max-width: 860px) {
   .nav {
     display: none;
   }
