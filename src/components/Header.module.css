@@ -20,7 +20,15 @@
   color: var(--text-on-ink);
 }
 
+/* Открытое мобильное меню: сплошной фон, иначе список тонет в просвечивающем контенте. */
+.header[data-open='true'] {
+  background: var(--bg);
+}
+
 .inner {
+  position: relative;
+  /* Бар над полноэкранной панелью-оверлеем. */
+  z-index: 1;
   max-width: var(--container);
   margin-inline: auto;
   padding: 0.9rem var(--gutter);
@@ -113,10 +121,73 @@
   transform-origin: left;
 }
 
-@media (max-width: 640px) {
-  /* Узкий экран: прячем вторичную навигацию, оставляем бренд и CTA. Полное меню — позже. */
-  .nav .link,
-  .nav .linkActive {
+/* ── Бургер и мобильная панель ─────────────────────────── */
+
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  margin-right: -8px;
+}
+
+.burger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  margin-inline: auto;
+  background: currentColor;
+  transition: transform var(--dur-fast) var(--ease-out), opacity var(--dur-fast) var(--ease-out);
+}
+
+.header[data-open='true'] .burger span:first-child {
+  transform: translateY(3.25px) rotate(45deg);
+}
+
+.header[data-open='true'] .burger span:last-child {
+  transform: translateY(-3.25px) rotate(-45deg);
+}
+
+.mobilePanel {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* Явная высота, а не inset:0: backdrop-filter хедера делает его containing block для fixed,
+     и bottom:0 дал бы высоту хедера (124px), а не экрана. */
+  height: 100dvh;
+  /* Полноэкранный оверлей: короткая панель обрывалась, и под ней просвечивал контент страницы. */
+  padding: 92px var(--gutter) 2rem;
+  background: var(--bg);
+  flex-direction: column;
+  gap: 0.25rem;
+  z-index: 0;
+}
+
+.mobileLink,
+.mobileLinkActive {
+  padding: 0.85rem 0;
+  font-size: 1.25rem;
+  border-bottom: 1px solid var(--hairline);
+  color: var(--text);
+}
+
+.mobileLinkActive {
+  color: var(--brass);
+}
+
+@media (max-width: 720px) {
+  /* Узкий экран: полная навигация и CTA прячутся, всё уходит в бургер-панель. */
+  .nav {
     display: none;
+  }
+  .burger {
+    display: flex;
+  }
+  .header[data-open='true'] .mobilePanel {
+    display: flex;
   }
 }

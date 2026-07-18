@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import styles from './Header.module.css'
 
@@ -13,6 +13,10 @@ export default function Header() {
   const bar = useRef<HTMLDivElement>(null)
   const root = useRef<HTMLElement>(null)
   const { pathname } = useLocation()
+  const [open, setOpen] = useState(false)
+
+  // Смена маршрута закрывает мобильное меню.
+  useEffect(() => setOpen(false), [pathname])
 
   useEffect(() => {
     let raf = 0
@@ -46,7 +50,7 @@ export default function Header() {
   }, [])
 
   return (
-    <header ref={root} className={styles.header}>
+    <header ref={root} className={styles.header} data-open={open}>
       <div className={styles.inner}>
         <Link to="/" className={styles.brand} data-cursor>
           Calista Law
@@ -71,7 +75,32 @@ export default function Header() {
             Contact
           </Link>
         </nav>
+
+        <button
+          type="button"
+          className={styles.burger}
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+        >
+          <span />
+          <span />
+        </button>
       </div>
+
+      {/* Мобильная панель: полный список разделов, недоступный в свёрнутой навигации. */}
+      <nav className={styles.mobilePanel}>
+        {[...NAV, { label: 'Contact', to: '/contact' }].map((item) => (
+          <Link
+            key={item.to}
+            to={item.to}
+            className={pathname.startsWith(item.to) ? styles.mobileLinkActive : styles.mobileLink}
+          >
+            {item.label}
+          </Link>
+        ))}
+      </nav>
+
       <span ref={bar} className={styles.progress} aria-hidden="true" />
     </header>
   )

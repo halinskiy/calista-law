@@ -19,6 +19,9 @@ export default function RouteMorph() {
 
   useEffect(() => {
     let raf = 0
+    // Ниже этой ширины морфа нет: карты стоят раскрытым стеком, --r держит CSS-media.
+    // Порог совпадает с media-правилом в RouteMorph.module.css и с webglOff в Home.
+    const mobile = window.matchMedia('(max-width: 812px)')
 
     // r считается заново каждый кадр из геометрии pin-обёртки, без накопления:
     // прыжок по якорю или reload с хэшем не должен оставить морф в промежуточной позе.
@@ -26,11 +29,17 @@ export default function RouteMorph() {
       const el = wrap.current
       const m = morph.current
       if (el && m) {
-        const rect = el.getBoundingClientRect()
-        const scrollable = rect.height - window.innerHeight
-        const r = scrollable > 0 ? clamp(-rect.top / scrollable) : 0
-        // Держим паузу в начале и в конце: блок стоит собранным, потом расходится, потом стоит разошедшимся.
-        m.style.setProperty('--r', String(fit(r, 0.12, 0.78, 0, 1)))
+        if (mobile.matches) {
+          // На мобиле НЕ трогаем --r: инлайн-стиль перебил бы media-правило (--r:1) и оставил
+          // пустой блок. Высота стека всё равно > экрана, поэтому по scrollable мобилку не поймать.
+          m.style.removeProperty('--r')
+        } else {
+          const rect = el.getBoundingClientRect()
+          const scrollable = rect.height - window.innerHeight
+          const r = scrollable > 0 ? clamp(-rect.top / scrollable) : 0
+          // Пауза в начале и в конце: блок стоит собранным, расходится, стоит разошедшимся.
+          m.style.setProperty('--r', String(fit(r, 0.12, 0.78, 0, 1)))
+        }
       }
       raf = requestAnimationFrame(tick)
     }
@@ -44,10 +53,7 @@ export default function RouteMorph() {
       <div className={styles.viewport}>
         <div className={styles.head}>
           <p className="mono">UK Global Talent Visa</p>
-          <h2 className={styles.title}>
-            <span className={styles.titleOne}>One visa. Two endorsing bodies.</span>
-            <span className={styles.titleTwo}>Your discipline decides which.</span>
-          </h2>
+          <h2 className={styles.title}>One visa. Two endorsing bodies.</h2>
         </div>
 
         <div ref={morph} className={styles.morph}>
