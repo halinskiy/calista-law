@@ -1,0 +1,69 @@
+.rail {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--hairline-strong);
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: clamp(1rem, 3vw, 3rem);
+  padding: clamp(1.75rem, 3.5vw, 3rem) 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.stepMark {
+  position: relative;
+}
+
+.stepMark .mono {
+  font-size: 0.85rem;
+}
+
+/* Точка на рельсе: маркер шага. */
+.stepMark::before {
+  content: '';
+  position: absolute;
+  top: 0.4em;
+  right: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--brass);
+}
+
+.stepBody {
+  max-width: 60ch;
+}
+
+.stepTitle {
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  margin-bottom: 0.5em;
+}
+
+.stepText {
+  color: var(--text-muted);
+  text-wrap: pretty;
+}
+
+.pitfalls {
+  display: grid;
+  gap: clamp(2rem, 3vw, 3rem);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+}
+
+.pitfall {
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--hairline-strong);
+}
+
+.pitfallTitle {
+  font-size: 1.35rem;
+  margin: 0.6em 0;
+}
+
+.pitfallText {
+  color: var(--text-muted);
+  text-wrap: pretty;
+}

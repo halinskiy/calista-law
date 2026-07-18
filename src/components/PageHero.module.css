@@ -1,0 +1,39 @@
+.hero {
+  /* Отступ под fixed-хедер + воздух. Замерено: 72px хедер + дыхание. */
+  padding: clamp(7rem, 12vh, 10rem) 0 clamp(2.5rem, 5vw, 4rem);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.crumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.5ch;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.crumbs a {
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.crumbs a:hover {
+  color: var(--text);
+}
+
+.index {
+  margin-top: clamp(2rem, 5vw, 3.5rem);
+}
+
+.title {
+  font-size: var(--step-h1);
+  max-width: 16ch;
+  margin-top: 0.3em;
+}
+
+.lead {
+  max-width: 52ch;
+  margin-top: 1.5rem;
+  font-size: clamp(1.05rem, 1.4vw, 1.3rem);
+  color: var(--text-muted);
+  text-wrap: pretty;
+}

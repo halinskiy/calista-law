@@ -1,0 +1,187 @@
+.routes {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr));
+}
+
+.route {
+  padding: clamp(1.5rem, 2.4vw, 2.25rem);
+  border: 1px solid var(--hairline);
+  background: var(--bg-raised);
+}
+
+.badge {
+  display: inline-block;
+  margin-left: 0.75em;
+  padding: 0.2em 0.6em;
+  background: var(--brass);
+  color: #fff;
+  border-radius: 2px;
+  letter-spacing: 0.06em;
+}
+
+.routeTitle {
+  font-size: var(--step-h2);
+  margin-top: 0.5em;
+}
+
+.endorser {
+  margin-top: 0.6em;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.routeSummary {
+  margin-top: 1.25em;
+  text-wrap: pretty;
+}
+
+.listLabel {
+  margin-top: 1.75em;
+}
+
+.list {
+  margin: 0.75em 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--hairline);
+}
+
+.list li {
+  padding: 0.5em 0;
+  border-bottom: 1px solid var(--hairline);
+  font-size: 0.95rem;
+}
+
+.excluded {
+  margin-top: 1.1em;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.75em 0 0;
+  padding-top: 1.25em;
+  border-top: 1px solid var(--hairline-strong);
+}
+
+.meta dt {
+  margin-bottom: 0.4em;
+}
+
+.meta dd {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.trap {
+  max-width: 60ch;
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--brass);
+  color: var(--text-muted);
+  text-wrap: pretty;
+}
+
+/* Talent / Promise */
+.grades {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+}
+
+.grade {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--hairline-strong);
+}
+
+.gradeYears {
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--accent);
+}
+
+.gradeYears span {
+  display: block;
+  margin-top: 0.9em;
+  color: var(--text-muted);
+}
+
+.gradeTitle {
+  font-size: var(--step-h2);
+  margin: 0.8em 0 0.5em;
+}
+
+.gradeCountries {
+  margin-top: 0.8em;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.gradeNote {
+  margin-top: 1.5em;
+  padding-top: 1.25em;
+  border-top: 1px solid var(--hairline);
+  text-wrap: pretty;
+}
+
+/* Сроки */
+.timeline {
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  background: var(--hairline);
+  border: 1px solid var(--hairline);
+}
+
+.timeline > div {
+  padding: clamp(1.25rem, 2vw, 2rem);
+  background: var(--bg);
+}
+
+.timeline dt {
+  margin-bottom: 0.7em;
+}
+
+.timeline dd {
+  margin: 0;
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  letter-spacing: -0.03em;
+}
+
+.note {
+  max-width: 60ch;
+  margin-top: 2rem;
+  color: var(--text-muted);
+  text-wrap: pretty;
+}
+
+/* Вопросы */
+.facts {
+  display: grid;
+  gap: clamp(2rem, 3vw, 3rem);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr));
+}
+
+.fact {
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--hairline-strong);
+}
+
+.factQ {
+  font-size: 1.25rem;
+  margin-bottom: 0.6em;
+}
+
+.factA {
+  color: var(--text-muted);
+  text-wrap: pretty;
+}
+
+.verified {
+  margin-top: 3rem;
+}

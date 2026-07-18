@@ -145,6 +145,53 @@ export const FACTS = [
   },
 ]
 
+/** Как мы ведём кейс. Шаги отражают реальный порядок работы по маршруту. */
+export const PROCESS = [
+  {
+    title: 'Placement',
+    body: 'Before anything else we settle which body should endorse you, DBA or Tech Nation. This is the single fork most applicants get wrong, and getting it wrong wastes the endorsement fee with no decision.',
+  },
+  {
+    title: 'Evidence audit',
+    body: 'We map what you already have against the criteria and, more usefully, against what is missing. A designer with a strong portfolio can still fail on the evidence the guidance actually asks for.',
+  },
+  {
+    title: 'Building the pack',
+    body: 'We assemble your evidence into the exact form the Home Office accepts: scans with visible hyperlinks, not URLs, inside the page limit for your route. Two sides of A4 for design, three for Tech Nation.',
+  },
+  {
+    title: 'Letters',
+    body: 'Three recommendation letters from the right people, from organisations that know your work, at least one in the UK. Not your manager, not a colleague, not a friend. Templated letters can be treated as fraud, so every one is written from scratch.',
+  },
+  {
+    title: 'Endorsement',
+    body: 'We submit and wait out the endorsement window. Nothing accelerates this stage, so the pack has to be right the first time.',
+  },
+  {
+    title: 'Visa and settlement',
+    body: 'Once endorsed, the visa stage is quick and rarely refused. We set your visa length, then keep your file ready for settlement, three years on Exceptional Talent, five on Promise.',
+  },
+]
+
+/** Наши услуги. Точные суммы гонораров не выдумываем — показываем структуру и государственные пошлины. */
+export const SERVICES = [
+  {
+    name: 'Placement call',
+    price: 'Fixed fee',
+    body: 'One focused conversation to establish your route and whether you are closer to Talent or Promise. If your case is not ready, we say so here, not after you have paid for a full application.',
+  },
+  {
+    name: 'Managed application',
+    price: 'Quoted upfront',
+    body: 'End to end. Placement, evidence audit, the full pack, all three letters, submission and the visa stage. One fixed fee agreed before we start, never hourly.',
+  },
+  {
+    name: 'Pack review',
+    price: 'Fixed fee',
+    body: 'You have built your own application and want a second read before you submit. We check it against the criteria and the format rules and tell you where it would fail.',
+  },
+]
+
 /** Реальные причины провала. Каждая взята из официальных гайдов, не из фольклора. */
 export const PITFALLS = [
   {
