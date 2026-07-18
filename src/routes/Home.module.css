@@ -1,25 +1,41 @@
 /* Весь сайт светлый: тёмный текст на белом. Синий — акцент на белом, где он контрастен.
    Никакого длинного текста на цветном фоне. Контрасты сверены по WCAG 2.2 (см. scripts/contrast). */
 
-/* ── Hero ─────────────────────────────────────────────── */
+/* ── Hero: две колонки, справа панель цифр ────────────── */
 
 .hero {
-  padding-top: clamp(9rem, 18vh, 13rem);
+  padding-top: clamp(8rem, 15vh, 11rem);
   padding-bottom: var(--rhythm);
   border-bottom: 1px solid var(--line);
 }
 
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(2.5rem, 5vw, 4.5rem);
+  align-items: end;
+}
+
+@media (min-width: 900px) {
+  .heroGrid {
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  }
+}
+
 .heroTitle {
-  font-size: var(--text-hero);
+  font-size: clamp(2.5rem, 5.2vw, 4.75rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.98;
   color: var(--ink);
-  max-width: 17ch;
+  max-width: 15ch;
   margin-top: 1.5rem;
 }
 
 .heroLead {
-  max-width: 52ch;
+  max-width: 50ch;
   margin-top: 1.75rem;
-  font-size: clamp(1.15rem, 1.5vw, 1.35rem);
+  font-size: clamp(1.1rem, 1.4vw, 1.3rem);
   line-height: 1.55;
   color: var(--body);
   text-wrap: pretty;
@@ -30,6 +46,31 @@
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: 2.5rem;
+}
+
+/* Панель цифр: держит правую колонку, даёт плотность и факты сразу. */
+.heroPanel {
+  border-top: 2px solid var(--ink);
+}
+
+.metric {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.metricNum {
+  font-size: clamp(2.25rem, 3.2vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--brand);
+}
+
+.metricLabel {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--body);
+  text-wrap: pretty;
 }
 
 /* Primary CTA: тёмная. Белый на ink #10163a = 17:1, WCAG AAA. */
@@ -213,39 +254,78 @@
   text-wrap: pretty;
 }
 
-/* ── Факты: крупные синие цифры на белом (brand на white = 8.9:1, AAA) ── */
+/* ── Pricing ──────────────────────────────────────────── */
 
-.facts {
-  padding-block: var(--rhythm);
-  border-top: 1px solid var(--line);
+.services {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
 }
 
-.factGrid {
+.service {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.5rem, 2.5vw, 2.25rem);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.servicePrice {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+.serviceName {
+  font-size: var(--text-h3);
+  margin-top: 1rem;
+}
+
+.serviceBody {
+  margin-top: 0.85rem;
+  color: var(--body);
+  text-wrap: pretty;
+}
+
+.feeRow {
   display: grid;
   gap: 1px;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+  margin-top: 1.25rem;
   background: var(--line);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   overflow: hidden;
 }
 
-.fact {
-  padding: clamp(1.75rem, 3vw, 2.75rem);
+.fee {
+  padding: clamp(1.25rem, 2vw, 1.75rem);
   background: var(--paper);
 }
 
-.factNum {
-  font-size: clamp(2.75rem, 5vw, 4.25rem);
-  font-weight: 700;
-  letter-spacing: -0.04em;
+.feeNum {
+  font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
   line-height: 1;
-  color: var(--brand);
+  color: var(--ink);
+  margin-bottom: 0.6rem;
 }
 
-.factLabel {
-  margin-top: 1rem;
-  color: var(--body);
+.subLabel {
+  margin-top: 2.5rem;
+}
+
+.footnote {
+  max-width: 60ch;
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  color: var(--muted);
   text-wrap: pretty;
 }
 
@@ -353,18 +433,4 @@
 
 .verified {
   margin-top: 2.5rem;
-}
-
-/* ── Гигантский вордмарк: синим на белом ──────────────── */
-
-.wordmark {
-  font-size: var(--text-mega);
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  line-height: 0.9;
-  padding: clamp(3rem, 7vw, 6rem) var(--gutter) clamp(3rem, 7vw, 6rem);
-  color: var(--brand);
-  border-top: 1px solid var(--line);
-  white-space: nowrap;
-  overflow: hidden;
 }

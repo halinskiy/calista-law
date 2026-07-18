@@ -47,8 +47,8 @@ figure {
 h1,
 h2,
 h3 {
-  font-weight: 700;
-  letter-spacing: -0.03em;
+  font-weight: 800;
+  letter-spacing: -0.035em;
   line-height: 1.02;
   color: var(--ink);
   text-wrap: balance;

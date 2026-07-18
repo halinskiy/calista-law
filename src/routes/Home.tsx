@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Accordion from '../components/Accordion'
 import Footer from '../components/Footer'
-import { ROUTES, PROCESS, FEES, GRADES, FACTS, LAST_VERIFIED } from '../content/visa'
+import { ROUTES, PROCESS, FEES, GRADES, FACTS, SERVICES, LAST_VERIFIED } from '../content/visa'
 import styles from './Home.module.css'
 
 const DISCIPLINES = [
@@ -16,26 +16,45 @@ export default function Home() {
   return (
     <>
       <main id="top">
-        {/* Hero */}
+        {/* Hero: слева заявление и действия, справа панель ключевых цифр — hero не пустует. */}
         <section className={styles.hero}>
-          <div className="container">
-            <p className="mono">UK Global Talent Visa · For designers</p>
-            <h1 className={styles.heroTitle}>
-              Settle in the UK on the strength of your work.
-            </h1>
-            <p className={styles.heroLead}>
-              The Global Talent visa needs no job offer and lets you freelance. Since 1 July 2026
-              there are two routes to it, and the wrong one costs £{FEES.endorsement} and returns no
-              decision. We make sure your case goes to the right door.
-            </p>
-            <div className={styles.heroActions}>
-              <a href="#contact" className={styles.heroSolid}>
-                Book a free assessment <span aria-hidden="true">→</span>
-              </a>
-              <a href="#routes" className={styles.heroGhost}>
-                See the two routes
-              </a>
+          <div className={`${styles.heroGrid} container`}>
+            <div className={styles.heroCol}>
+              <p className="mono">UK Global Talent Visa · For designers</p>
+              <h1 className={styles.heroTitle}>Settle in the UK on the strength of your work.</h1>
+              <p className={styles.heroLead}>
+                The Global Talent visa needs no job offer and lets you freelance. Since 1 July 2026
+                there are two routes to it, and the wrong one costs £{FEES.endorsement} and returns no
+                decision. We make sure your case goes to the right door.
+              </p>
+              <div className={styles.heroActions}>
+                <a href="#contact" className={styles.heroSolid}>
+                  Book a free assessment <span aria-hidden="true">→</span>
+                </a>
+                <a href="#routes" className={styles.heroGhost}>
+                  See the two routes
+                </a>
+              </div>
             </div>
+
+            <aside className={styles.heroPanel}>
+              <div className={styles.metric}>
+                <p className={styles.metricNum}>£{FEES.total}</p>
+                <p className={styles.metricLabel}>Home Office fees, endorsement plus visa</p>
+              </div>
+              <div className={styles.metric}>
+                <p className={styles.metricNum}>{GRADES[0].ilrYears} yrs</p>
+                <p className={styles.metricLabel}>To settlement on Exceptional Talent</p>
+              </div>
+              <div className={styles.metric}>
+                <p className={styles.metricNum}>2</p>
+                <p className={styles.metricLabel}>Endorsing bodies. Only one is yours</p>
+              </div>
+              <div className={styles.metric}>
+                <p className={styles.metricNum}>No</p>
+                <p className={styles.metricLabel}>Job offer needed. Freelance allowed</p>
+              </div>
+            </aside>
           </div>
         </section>
 
@@ -96,27 +115,47 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Facts — синий акцентный блок с крупными цифрами */}
-        <section id="facts" className={styles.facts}>
+        {/* Pricing */}
+        <section id="pricing" className={styles.section}>
           <div className="container">
-            <div className={styles.factGrid}>
-              <div className={styles.fact}>
-                <p className={styles.factNum}>£{FEES.total}</p>
-                <p className={styles.factLabel}>Home Office fees, endorsement plus visa</p>
+            <div className={styles.sectionHead}>
+              <p className="mono">Pricing</p>
+              <h2 className={styles.h2}>Our fee, and the government’s, kept separate.</h2>
+            </div>
+            <div className={styles.services}>
+              {SERVICES.map((s) => (
+                <article key={s.name} className={styles.service}>
+                  <p className={styles.servicePrice}>{s.price}</p>
+                  <h3 className={styles.serviceName}>{s.name}</h3>
+                  <p className={styles.serviceBody}>{s.body}</p>
+                </article>
+              ))}
+            </div>
+            <p className={styles.subLabel}>
+              <span className="mono">Home Office fees, to the pound</span>
+            </p>
+            <div className={styles.feeRow}>
+              <div className={styles.fee}>
+                <p className={styles.feeNum}>£{FEES.endorsement}</p>
+                <p className="mono">Endorsement</p>
               </div>
-              <div className={styles.fact}>
-                <p className={styles.factNum}>{GRADES[0].ilrYears} yrs</p>
-                <p className={styles.factLabel}>To settlement on Exceptional Talent</p>
+              <div className={styles.fee}>
+                <p className={styles.feeNum}>£{FEES.visa}</p>
+                <p className="mono">Visa stage</p>
               </div>
-              <div className={styles.fact}>
-                <p className={styles.factNum}>0</p>
-                <p className={styles.factLabel}>Job offers required. Freelance allowed</p>
+              <div className={styles.fee}>
+                <p className={styles.feeNum}>£{FEES.ihsPerYear.toLocaleString('en-GB')}</p>
+                <p className="mono">Health surcharge / yr</p>
               </div>
-              <div className={styles.fact}>
-                <p className={styles.factNum}>2</p>
-                <p className={styles.factLabel}>Endorsing bodies. Only one is yours</p>
+              <div className={styles.fee}>
+                <p className={styles.feeNum}>£{FEES.fiveYearAdult.toLocaleString('en-GB')}</p>
+                <p className="mono">One adult, five years</p>
               </div>
             </div>
+            <p className={styles.footnote}>
+              The April 2026 fee rise left Global Talent untouched. Priority service (£{FEES.priority})
+              exists at the visa stage only; the endorsement cannot be sped up at any price.
+            </p>
           </div>
         </section>
 
@@ -192,11 +231,6 @@ export default function Home() {
             </p>
           </div>
         </section>
-
-        {/* Гигантский вордмарк */}
-        <div className={styles.wordmark} aria-hidden="true">
-          Calista Law
-        </div>
       </main>
       <Footer />
     </>
