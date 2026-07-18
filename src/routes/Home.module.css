@@ -1,6 +1,40 @@
 /* Весь сайт светлый: тёмный текст на белом. Синий — акцент на белом, где он контрастен.
    Никакого длинного текста на цветном фоне. Контрасты сверены по WCAG 2.2 (см. scripts/contrast). */
 
+/* Измерительная сетка (Vercel legal): непрерывные вертикальные гайды по краям
+   контентной колонки, крест-маркеры на пересечениях с разделителями секций. */
+.page {
+  --edge: max(var(--gutter), calc((100% - var(--grid-max)) / 2 + var(--gutter)));
+  background: linear-gradient(var(--line), var(--line)) var(--edge) 0 / 1px 100% no-repeat,
+    linear-gradient(var(--line), var(--line)) calc(100% - var(--edge)) 0 / 1px 100% no-repeat;
+}
+
+/* Крест-маркеры на верхних углах секций, где вертикаль встречает разделитель. */
+.page > section {
+  position: relative;
+}
+
+.page > section::before,
+.page > section::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  width: 9px;
+  height: 9px;
+  background: linear-gradient(var(--muted), var(--muted)) center / 9px 1px no-repeat,
+    linear-gradient(var(--muted), var(--muted)) center / 1px 9px no-repeat;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.page > section::before {
+  left: calc(var(--edge) - 5px);
+}
+
+.page > section::after {
+  right: calc(var(--edge) - 5px);
+}
+
 /* ── Hero: две колонки, справа панель цифр ────────────── */
 
 .hero {

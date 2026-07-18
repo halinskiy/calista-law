@@ -15,7 +15,7 @@ export default function Home() {
 
   return (
     <>
-      <main id="top">
+      <main id="top" className={styles.page}>
         {/* Hero: заявление слева, cinematic-фото London справа. Визуал несёт вес, как у премиальных. */}
         <section className={styles.hero}>
           <div className={`${styles.heroGrid} container`}>
