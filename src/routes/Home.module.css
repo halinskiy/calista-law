@@ -1,6 +1,5 @@
 .main {
   position: relative;
-  /* Контент едет над атмосферой: сцена — фон, а не оверлей. */
   z-index: 1;
 }
 
@@ -9,11 +8,10 @@
 .section {
   padding-block: var(--section-y);
   border-top: 1px solid var(--hairline);
-  /* Секции ниже морфа непрозрачны: под текстом статьи атмосфера просвечивать не должна. */
   background: var(--bg);
 }
 
-.section h2 {
+.h2 {
   font-size: var(--step-h1);
   max-width: 20ch;
   margin-top: 0.4em;
@@ -136,7 +134,7 @@
   color: var(--text-on-ink);
 }
 
-.honesty h2 {
+.honestyH2 {
   font-size: var(--step-h1);
   max-width: 18ch;
   margin-top: 0.4em;

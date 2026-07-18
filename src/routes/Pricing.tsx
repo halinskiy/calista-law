@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import PageHero from '../components/PageHero'
-import MaskedHeading from '../components/MaskedHeading'
+import Reveal from '../components/Reveal'
 import Footer from '../components/Footer'
 import { SERVICES, FEES, LAST_VERIFIED } from '../content/visa'
 import inner from '../styles/inner.module.css'
@@ -21,7 +21,7 @@ export default function Pricing() {
           <div className="container">
             <div className={inner.sectionHead}>
               <p className="mono">Our work</p>
-              <MaskedHeading as="h2" className={inner.h2} text="Three ways to work with us." />
+              <Reveal as="h2" className={inner.h2}>Three ways to work with us.</Reveal>
             </div>
             <div className={styles.services}>
               {SERVICES.map((s) => (
@@ -41,7 +41,7 @@ export default function Pricing() {
           <div className="container">
             <div className={inner.sectionHead}>
               <p className="mono">The government's part</p>
-              <MaskedHeading as="h2" className={inner.h2} text="Home Office fees, to the pound." />
+              <Reveal as="h2" className={inner.h2}>Home Office fees, to the pound.</Reveal>
             </div>
             <div className={styles.fees}>
               <div className={styles.fee}>
@@ -71,7 +71,7 @@ export default function Pricing() {
 
         <section className={inner.section}>
           <div className="container">
-            <MaskedHeading as="h2" className={inner.h2} text="A fixed fee starts with a placement call." />
+            <Reveal as="h2" className={inner.h2}>A fixed fee starts with a placement call.</Reveal>
             <p className={inner.lead}>
               We quote once we know your route and where your record stands. No hourly billing, no
               surprises at the end.

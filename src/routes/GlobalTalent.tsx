@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import PageHero from '../components/PageHero'
-import MaskedHeading from '../components/MaskedHeading'
+import Reveal from '../components/Reveal'
 import Footer from '../components/Footer'
 import { ROUTES, GRADES, FACTS, TIMELINE, LAST_VERIFIED } from '../content/visa'
 import inner from '../styles/inner.module.css'
@@ -22,7 +22,7 @@ export default function GlobalTalent() {
           <div className="container">
             <div className={inner.sectionHead}>
               <p className="mono">The fork</p>
-              <MaskedHeading as="h2" className={inner.h2} text="Your discipline picks your endorser." />
+              <Reveal as="h2" className={inner.h2}>Your discipline picks your endorser.</Reveal>
             </div>
 
             <div className={styles.routes}>
@@ -73,7 +73,7 @@ export default function GlobalTalent() {
           <div className="container">
             <div className={inner.sectionHead}>
               <p className="mono">The grade</p>
-              <MaskedHeading as="h2" className={inner.h2} text="Talent or promise. It sets your clock." />
+              <Reveal as="h2" className={inner.h2}>Talent or promise. It sets your clock.</Reveal>
             </div>
             <div className={styles.grades}>
               {GRADES.map((g) => (
@@ -97,7 +97,7 @@ export default function GlobalTalent() {
           <div className="container">
             <div className={inner.sectionHead}>
               <p className="mono">The clock</p>
-              <MaskedHeading as="h2" className={inner.h2} text="How long each stage takes." />
+              <Reveal as="h2" className={inner.h2}>How long each stage takes.</Reveal>
             </div>
             <dl className={styles.timeline}>
               <div>
@@ -130,7 +130,7 @@ export default function GlobalTalent() {
           <div className="container">
             <div className={inner.sectionHead}>
               <p className="mono">Answered plainly</p>
-              <MaskedHeading as="h2" className={inner.h2} text="The questions everyone asks first." />
+              <Reveal as="h2" className={inner.h2}>The questions everyone asks first.</Reveal>
             </div>
             <div className={styles.facts}>
               {FACTS.map((f) => (
@@ -145,7 +145,7 @@ export default function GlobalTalent() {
 
         <section className={inner.section}>
           <div className="container">
-            <MaskedHeading as="h2" className={inner.h2} text="Not sure which door is yours?" />
+            <Reveal as="h2" className={inner.h2}>Not sure which door is yours?</Reveal>
             <p className={inner.lead}>
               That is the first thing we work out, before a single letter is written. Tell us what you
               do, and we will tell you which body should see it.

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import PageHero from '../components/PageHero'
-import MaskedHeading from '../components/MaskedHeading'
+import Reveal from '../components/Reveal'
 import Footer from '../components/Footer'
 import { PROCESS, PITFALLS } from '../content/visa'
 import inner from '../styles/inner.module.css'
@@ -40,7 +40,7 @@ export default function Process() {
           <div className="container">
             <div className={inner.sectionHead}>
               <p className="mono">What we design around</p>
-              <MaskedHeading as="h2" className={inner.h2} text="The refusals are predictable, so we plan for them." />
+              <Reveal as="h2" className={inner.h2}>The refusals are predictable, so we plan for them.</Reveal>
             </div>
             <div className={styles.pitfalls}>
               {PITFALLS.map((p, i) => (
@@ -56,7 +56,7 @@ export default function Process() {
 
         <section className={inner.section}>
           <div className="container">
-            <MaskedHeading as="h2" className={inner.h2} text="Start with the placement call." />
+            <Reveal as="h2" className={inner.h2}>Start with the placement call.</Reveal>
             <p className={inner.lead}>
               Half an hour to work out your route and whether your record is ready. If it is not, you
               will hear that first, not last.

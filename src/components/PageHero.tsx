@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import MaskedHeading from './MaskedHeading'
+import Reveal from './Reveal'
 import styles from './PageHero.module.css'
 
 type Props = {
@@ -27,7 +27,9 @@ export default function PageHero({ index, eyebrow, title, lead }: Props) {
         <p className={styles.index}>
           <span className="mono">{index}</span>
         </p>
-        <MaskedHeading as="h1" className={styles.title} text={title} />
+        <Reveal as="h1" className={styles.title}>
+          {title}
+        </Reveal>
         <p className={styles.lead}>{lead}</p>
       </div>
     </header>

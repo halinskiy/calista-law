@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import PageHero from '../components/PageHero'
-import MaskedHeading from '../components/MaskedHeading'
+import Reveal from '../components/Reveal'
 import Footer from '../components/Footer'
 import inner from '../styles/inner.module.css'
 
@@ -19,7 +19,7 @@ export default function About() {
           <div className="container">
             <div className={inner.sectionHead}>
               <p className="mono">Why so narrow</p>
-              <MaskedHeading as="h2" className={inner.h2} text="Because the detail is where cases are won." />
+              <Reveal as="h2" className={inner.h2}>Because the detail is where cases are won.</Reveal>
             </div>
             <div className={inner.prose}>
               <p>
@@ -40,7 +40,7 @@ export default function About() {
           <div className="container">
             <div className={inner.sectionHead}>
               <p className="mono">Where we differ</p>
-              <MaskedHeading as="h2" className={inner.h2} text="We will not quote you a success rate." />
+              <Reveal as="h2" className={inner.h2}>We will not quote you a success rate.</Reveal>
             </div>
             <div className={inner.prose}>
               <p>
@@ -59,7 +59,7 @@ export default function About() {
 
         <section className={inner.section}>
           <div className="container">
-            <MaskedHeading as="h2" className={inner.h2} text="Start with your discipline." />
+            <Reveal as="h2" className={inner.h2}>Start with your discipline.</Reveal>
             <p className={inner.lead}>
               Tell us what you actually do, and we will tell you which door is yours before anything
               else happens.
