@@ -2,7 +2,7 @@
 const lin = (c) => { c /= 255; return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4 }
 const L = (hex) => { const n = parseInt(hex.slice(1), 16); const r = (n>>16)&255, g=(n>>8)&255, b=n&255; return 0.2126*lin(r)+0.7152*lin(g)+0.0722*lin(b) }
 const ratio = (a, b) => { const la = L(a), lb = L(b); const hi = Math.max(la, lb), lo = Math.min(la, lb); return (hi + 0.05) / (lo + 0.05) }
-const C = { paper:'#ffffff', ink:'#10163a', body:'#3d4368', muted:'#6b7192', brand:'#1d2bd4' }
+const C = { paper:'#ffffff', ink:'#0d0d0d', body:'#333333', muted:'#6a6a6a', brand:'#1d2bd4' }
 const pairs = [
   ['ink text on white', C.ink, C.paper, 'body/headings'],
   ['body text on white', C.body, C.paper, 'paragraphs'],

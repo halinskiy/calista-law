@@ -244,7 +244,7 @@
 
 .routeCard:hover {
   border-color: var(--line-strong);
-  box-shadow: 0 16px 40px #10163a14;
+  box-shadow: 0 16px 40px #0000001a;
   transform: translateY(-4px);
 }
 
@@ -373,7 +373,7 @@
 
 .service:hover {
   border-color: var(--line-strong);
-  box-shadow: 0 16px 40px #10163a14;
+  box-shadow: 0 16px 40px #0000001a;
   transform: translateY(-4px);
 }
 
