@@ -119,8 +119,14 @@
 
 .metric {
   position: relative;
-  padding: 1.5rem clamp(1rem, 2vw, 2rem) 1.75rem 0;
+  /* Отступ от вертикального разделителя слева — контент не липнет к линии. */
+  padding: 1.5rem clamp(1rem, 2vw, 2rem) 1.75rem clamp(1rem, 2vw, 2rem);
   border-right: 1px solid var(--line);
+}
+
+/* Первая ячейка выровнена по левому краю текста выше (разделителя слева у неё нет). */
+.metric:first-child {
+  padding-left: 0;
 }
 
 /* Крест-маркер на пересечении измерительной сетки, как на legal-странице Vercel. */
