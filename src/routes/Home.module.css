@@ -170,7 +170,7 @@
   text-wrap: pretty;
 }
 
-/* Primary CTA: тёмная. Белый на ink #10163a = 17:1, WCAG AAA. */
+/* Primary CTA: синяя. Белый на brand #1d2cd4 = 8.9:1, WCAG AAA. */
 .heroSolid,
 .ctaSolid {
   display: inline-flex;
@@ -178,7 +178,7 @@
   gap: 0.6em;
   height: 56px;
   padding: 0 1.9rem;
-  background: var(--ink);
+  background: var(--brand);
   color: #ffffff;
   border-radius: var(--radius);
   font-weight: 600;
@@ -189,7 +189,7 @@
 .heroSolid:hover,
 .ctaSolid:hover {
   gap: 1em;
-  background: #05081f;
+  background: var(--brand-deep);
 }
 
 .heroGhost {
@@ -216,7 +216,7 @@
 }
 
 .sectionHead {
-  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
 }
 
 .h2 {

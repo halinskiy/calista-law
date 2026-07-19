@@ -1,7 +1,7 @@
 :root {
-  /* Фирменный синий — акцент и дерзкие блоки (hero, цифры, вордмарк), НЕ фон всего сайта. */
-  --brand: #1d2bd4;
-  --brand-deep: #141c96;
+  /* Фирменный синий — кнопки и акценты. */
+  --brand: #1d2cd4;
+  --brand-deep: #1522a6;
   --brand-bright: #4a58ff;
 
   /* Читаемая база: чёрный текст на белом, нейтральный (без синевы). */
@@ -39,7 +39,7 @@
 
   --grid-max: 1500px;
   --gutter: clamp(1.25rem, 4vw, 3rem);
-  --rhythm: clamp(4.5rem, 9vw, 8rem);
+  --rhythm: clamp(2.75rem, 5vw, 4.5rem);
 }
 
 @media (prefers-reduced-motion: reduce) {

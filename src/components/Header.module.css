@@ -46,21 +46,21 @@
   color: var(--ink);
 }
 
-/* CTA тёмная: белый на ink = 17:1, WCAG AAA. */
+/* CTA синяя: белый на brand = 8.9:1, WCAG AAA. */
 .cta {
   display: inline-flex;
   align-items: center;
   height: 42px;
   padding: 0 1.3rem;
   color: #ffffff;
-  background: var(--ink);
+  background: var(--brand);
   border-radius: var(--radius);
   font-weight: 600;
   transition: background-color var(--dur-hover) var(--ease-smooth);
 }
 
 .cta:hover {
-  background: #05081f;
+  background: var(--brand-deep);
 }
 
 /* ── Бургер + мобильная панель ─────────────────────────── */
