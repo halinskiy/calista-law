@@ -4,7 +4,8 @@
 /* Измерительная сетка (Vercel legal): непрерывные вертикальные гайды по краям
    контентной колонки, крест-маркеры на пересечениях с разделителями секций. */
 .page {
-  --edge: max(var(--gutter), calc((100% - var(--grid-max)) / 2 + var(--gutter)));
+  /* Гайды на КРАЮ колонки, а текст отодвинут внутрь на gutter — линия не липнет к тексту. */
+  --edge: max(0px, calc((100% - var(--grid-max)) / 2));
   background: linear-gradient(var(--line), var(--line)) var(--edge) 0 / 1px 100% no-repeat,
     linear-gradient(var(--line), var(--line)) calc(100% - var(--edge)) 0 / 1px 100% no-repeat;
 }
