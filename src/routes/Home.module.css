@@ -210,13 +210,17 @@
 
 /* ── Секции ───────────────────────────────────────────── */
 
+/* Внутри секции отступ маленький — контент близко к разделителю.
+   Пространство между секциями создаёт «грядка» (margin-top), сквозь неё
+   проходит измерительная сетка. */
 .section {
-  padding-block: var(--rhythm);
+  padding-block: clamp(1.25rem, 1.8vw, 1.75rem);
+  margin-top: clamp(4rem, 8vw, 7rem);
   border-top: 1px solid var(--line);
 }
 
 .sectionHead {
-  margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
+  margin-bottom: clamp(1.25rem, 2vw, 1.75rem);
 }
 
 .h2 {
